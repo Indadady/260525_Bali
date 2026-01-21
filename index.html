@@ -455,10 +455,18 @@
         <!-- Timeline Section -->
         <section id="timeline" class="py-20 bg-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-center mb-2">5박 7일 여정 상세</h2>
-                <!-- 일정 변경 안내 문구 추가 -->
-                <p class="text-center text-rose-500 text-sm font-bold mt-2">※ 현지 사정에 따라 일정은 변경될 수도 있습니다.</p>
-                <p class="text-center text-slate-500 text-xs mb-10">(항공편 및 현지 도로 사정 등)</p>
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-3">5박 7일 여정 상세</h2>
+                    
+                    <!-- Moved Button -->
+                    <a href="https://www.modetour.com/package/101740364?MLoc=99&Pnum=101740364&Sno=C1091311&ANO=7900804&thru=crs" target="_blank" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white text-xs py-2.5 px-5 rounded-full transition-all shadow-md hover:shadow-lg mb-2">
+                        <span class="font-bold">📄 모두투어 원문 일정표 확인하기</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+
+                    <p class="text-rose-500 text-sm font-bold mt-4">※ 현지 사정에 따라 일정은 변경될 수도 있습니다.</p>
+                    <p class="text-slate-500 text-xs">(항공편 및 현지 도로 사정 등)</p>
+                </div>
                 
                 <!-- Tab Navigation -->
                 <div class="max-w-5xl mx-auto bg-slate-50 rounded-t-2xl shadow-sm border-b overflow-hidden flex flex-wrap">
@@ -489,17 +497,22 @@
                         
                         <!-- Meeting Card -->
                         <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-rose-500">
-                            <h3 class="font-bold text-lg mb-4 text-slate-900">🛫 인천공항 미팅</h3>
-                            <div class="space-y-3 text-sm text-slate-700">
-                                <div class="flex justify-between">
-                                    <span class="text-slate-500">일시</span>
-                                    <strong class="text-rose-600">2026.05.25 (월) 15:00</strong>
+                            <h3 class="font-bold text-lg mb-4 text-slate-900">🛫 인천공항 출국 안내</h3>
+                            <div class="space-y-4 text-sm text-slate-700">
+                                <div class="p-3 bg-slate-50 rounded-lg">
+                                    <p class="font-bold text-slate-800 mb-1">기본: 개별 수속</p>
+                                    <p class="text-xs text-slate-600">공항 도착 후 별도 미팅 없이 바로 <strong>인천공항 제2터미널</strong>에서 개별적으로 수속을 진행해주세요. (출발 3시간 전 도착 권장)</p>
                                 </div>
-                                <div class="flex justify-between">
-                                    <span class="text-slate-500">장소</span>
-                                    <strong>인천공항 제2터미널 A카운터</strong>
+                                
+                                <div class="p-3 bg-rose-50 rounded-lg border border-rose-100">
+                                    <p class="font-bold text-rose-700 mb-1">선택: 미팅 서비스 신청자</p>
+                                    <p class="text-xs text-rose-600">
+                                        <strong>제2터미널 A카운터 1번 출구 앞</strong><br>
+                                        1~2번 모두투어 테이블에서 미팅 진행
+                                    </p>
                                 </div>
-                                <div class="flex justify-between">
+
+                                <div class="flex justify-between pt-2 border-t border-slate-100">
                                     <span class="text-slate-500">편명</span>
                                     <strong>대한항공 KE433 (18:00 출발)</strong>
                                 </div>
@@ -575,11 +588,6 @@
                     <!-- 모두투어 로고 -->
                     <img src="https://ditto-phinf.pstatic.net/20240627_79/1719469654080HkLus_PNG/667d06536a4e8e22f07d8c39.png" alt="Mode Tour" class="h-6 w-auto grayscale invert brightness-200">
                 </div>
-
-                <a href="https://www.modetour.com/package/101740364?MLoc=99&Pnum=101740364&Sno=C1091311&ANO=7900804&thru=crs" target="_blank" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs py-2 px-4 rounded-full transition-colors border border-slate-700">
-                    <span>📄 원문 일정표 자세히 보기</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                </a>
                 
                 <p class="text-[10px] text-slate-600 mt-8">&copy; 2026 Tourmaker. All Rights Reserved.</p>
             </div>
