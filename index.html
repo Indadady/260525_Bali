@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-JLH9GD9SVR');
     </script>
     <!-- // Google Analytics 끝 -->
@@ -19,34 +18,32 @@
     <!-- 📢 카카오톡/SNS 공유 시 보여질 썸네일 설정 (Open Graph) -->
     <meta property="og:title" content="김성환♥신하림 님의 발리 허니문 가이드북">
     <meta property="og:description" content="두 분의 결혼을 축하드립니다! 쉐라톤 꾸따 + 쥬메이라 풀빌라 5박 7일 프라이빗 일정표">
-    <meta property="og:image" content="https://cdn.jumeirah.com/api/public/content/d8a1a64762624b25818c66c5341ce045?v=0be82fee"> <!-- 쥬메이라 풀빌라 고화질 -->
-    <meta property="og:url" content=""> 
+    <meta property="og:image" content="https://cdn.jumeirah.com/api/public/content/d8a1a64762624b25818c66c5341ce045?v=0be82fee">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- 폰트: 우아한 명조체(Playfair) + 가독성 고딕(Noto Sans) 조합 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; background-color: #fff0f5; color: #334155; }
         .font-serif { font-family: 'Playfair Display', serif; }
         
-        /* Hero Background - Updated Image */
+        /* Hero Background - Updated */
         .hero-bg-bali { 
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url('https://tse1.mm.bing.net/th/id/OIP.opBHaKd2YwizFay7I-XbxwHaHa?w=474&h=379&c=7&p=0');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url('https://img.brdu.pw/img/1200/bw5d48ohbw5efpm3mc_3/hQcTZkPQcHaNhcNhQcEkbiTJXm2AJsSz2Xtp4sblxrhQ.jpg');
             background-size: cover;
             background-position: center;
         } 
         
         /* Interactive Elements */
         .nav-link { transition: all 0.3s; }
-        .nav-link:hover, .nav-link.active { color: #be123c; border-bottom-color: #be123c; } /* Rose-700 */
+        .nav-link:hover, .nav-link.active { color: #be123c; border-bottom-color: #be123c; }
         
         .tab-btn { transition: all 0.3s; }
         .tab-btn.active { background-color: #be123c; color: white; border-color: #be123c; }
         
-        /* Timeline Styling */
+        /* Timeline Styling V1 */
         .timeline-item::before { content: ''; position: absolute; left: 11px; top: 12px; bottom: -12px; width: 2px; background-color: #e2e8f0; }
         .timeline-item:last-child::before { display: none; }
         
@@ -62,7 +59,7 @@
 
         /* Notepad Style */
         .notepad {
-            background-color: #fffbeb; /* Amber-50 */
+            background-color: #fffbeb; 
             background-image: linear-gradient(#e2e8f0 1px, transparent 1px);
             background-size: 100% 2rem;
             line-height: 2rem;
@@ -71,62 +68,88 @@
         }
         .notepad:focus { outline: none; background-color: #fef3c7; }
 
-        /* Horizontal Scroll Hide */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Weather Scroll Animation */
+        .weather-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
+        .weather-card { scroll-snap-align: start; flex: 0 0 auto; }
+
+        /* Toast Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate(-50%, 20px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+        .animate-fade-in-up { animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* 인쇄 최적화 (PDF 저장 시 적용) */
+        @media print {
+            body { background-color: #ffffff; color: #000000; }
+            /* 인쇄 시 불필요한 영역 숨김 처리 */
+            header, #home, #highlight, #stay, #choices, #mood, #culture, #weather-money, #timeline, #builder-controls, #pretravel, #emergency, footer, .no-print, .hero-bg-bali { display: none !important; }
+            
+            /* 인쇄용 영역 활성화 및 스타일링 */
+            #print-area { display: block !important; padding: 20px; }
+            #print-area h2 { font-size: 24pt; color: #be123c; border-bottom: 2px solid #be123c; padding-bottom: 10px; margin-bottom: 20px;}
+            .print-day-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; margin-bottom: 20px; page-break-inside: avoid; }
+            .print-day-title { font-size: 16pt; font-weight: bold; background-color: #fff1f2; padding: 8px; border-radius: 4px; color: #be123c;}
+            .print-item { margin-top: 10px; font-size: 12pt; line-height: 1.6; }
+            
+            /* 링크 색상 초기화 */
+            a { text-decoration: none !important; color: #000 !important; }
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-rose-200 selection:text-rose-900">
+<body class="antialiased selection:bg-rose-200 selection:text-rose-900 relative">
+
+    <!-- Toast 알림 컨테이너 (중복 선택 시 노출) -->
+    <div id="toast-container" class="fixed bottom-10 left-1/2 z-[100] flex flex-col gap-2 pointer-events-none"></div>
 
     <!-- Header / Navigation -->
-    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-rose-100">
+    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-rose-100 no-print">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo & D-Day -->
-                <div class="flex-shrink-0 flex items-center gap-3" onclick="window.scrollTo(0,0)">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker Logo" class="h-8 w-auto cursor-pointer">
-                    <div id="d-day-badge" class="bg-rose-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker Logo" class="h-8 w-auto">
+                    <div id="d-day-badge" class="hidden sm:block bg-rose-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">
                         Calculating...
                     </div>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <a href="#mynote" class="text-rose-600 font-bold text-sm"><i class="fa-solid fa-pen-to-square"></i> 기록하기</a>
                 </div>
 
                 <!-- Desktop Nav -->
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-6 text-sm font-medium text-slate-500">
-                        <a href="#home"        class="nav-link px-1 py-4 border-b-2 border-transparent hover:text-rose-600 active">홈</a>
-                        <a href="#highlight"   class="nav-link px-1 py-4 border-b-2 border-transparent hover:text-rose-600">핵심 포인트</a>
-                        <a href="#stay"        class="nav-link px-1 py-4 border-b-2 border-transparent hover:text-rose-600">숙소</a>
-                        <a href="#choices"     class="nav-link px-1 py-4 border-b-2 border-transparent hover:text-rose-600">선택 일정</a>
-                        <a href="#mood"        class="nav-link px-1 py-4 border-b-2 border-transparent hover:text-rose-600">무드뷰</a>
-                        <a href="#timeline"    class="nav-link px-1 py-4 border-b-2 border-transparent hover:text-rose-600">일정표</a>
-                        <a href="#mynote"      class="nav-link px-1 py-4 border-b-2 border-transparent text-rose-600 font-bold"><i class="fa-solid fa-pen-to-square"></i> MY 노트</a>
+                    <div class="ml-10 flex items-baseline space-x-4 lg:space-x-5 text-sm font-medium text-slate-500">
+                        <a href="#home" class="nav-link px-1 py-4 border-b-2 border-transparent hover:text-rose-600 active">홈</a>
+                        <a href="#stay" class="nav-link px-1 py-4 border-b-2 border-transparent hover:text-rose-600">숙소/선택</a>
+                        <a href="#culture" class="nav-link px-1 py-4 border-b-2 border-transparent hover:text-rose-600">발리 백과사전</a>
+                        <a href="#weather-money" class="nav-link px-1 py-4 border-b-2 border-transparent hover:text-rose-600">날씨/환율</a>
+                        <a href="#builder" class="nav-link px-1 py-4 border-b-2 border-rose-600 text-rose-600 font-bold"><i class="fa-solid fa-wand-magic-sparkles"></i> 스마트 빌더</a>
                     </div>
+                </div>
+                
+                <!-- Mobile Actions -->
+                <div class="md:hidden flex items-center gap-2">
+                   <a href="#builder" class="text-rose-600 font-bold text-xs bg-rose-50 px-3 py-1.5 rounded-full border border-rose-200">일정짜기</a>
+                   <button onclick="window.print()" class="bg-slate-800 text-white text-xs px-3 py-1.5 rounded-full"><i class="fa-solid fa-print"></i> 인쇄</button>
                 </div>
             </div>
         </nav>
         <!-- Mobile Secondary Nav -->
         <div class="md:hidden overflow-x-auto whitespace-nowrap bg-white border-b border-slate-100 no-scrollbar">
             <div class="flex px-4 space-x-6 text-xs font-medium text-slate-500 h-10 items-center">
-                <a href="#home">홈</a>
-                <a href="#highlight">핵심</a>
-                <a href="#stay">숙소</a>
-                <a href="#choices">선택 일정</a>
-                <a href="#timeline">일정표</a>
-                <a href="#pretravel" class="text-rose-600 font-bold">준비/안전</a>
+                <a href="#stay">숙소/관광</a>
+                <a href="#culture">발리TMI</a>
+                <a href="#weather-money">날씨/환율</a>
+                <a href="#pretravel" class="text-rose-600 font-bold">짐싸기/노트</a>
             </div>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero-bg-bali text-white text-center flex flex-col items-center justify-center min-h-[85vh] relative px-4">
-            <div class="animate-fade-in z-10 max-w-3xl">
-                <!-- 축하 메시지 배지 -->
+        <section id="home" class="hero-bg-bali text-white text-center flex flex-col items-center justify-center min-h-[85vh] relative px-4 no-print">
+            <div class="animate-fade-in z-10 max-w-3xl mt-10">
                 <div class="inline-block mb-6 animate-bounce">
                     <span class="py-2 px-4 rounded-full bg-rose-600/90 backdrop-blur-md border border-rose-400 text-sm font-bold text-white shadow-lg">
                         🎉 두 분의 결혼을 진심으로 축하드립니다
@@ -144,46 +167,43 @@
                     오직 두 분만을 위한 특별한 여정을 즐기세요.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row justify-center gap-3 text-sm md:text-base font-bold">
+                <div class="flex flex-col sm:flex-row justify-center gap-3 text-sm md:text-base font-bold mb-8">
                     <div class="bg-black/30 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full">
                         🗓️ 2026.05.25 - 05.31 (5박 7일)
                     </div>
                     <div class="bg-rose-600/80 backdrop-blur-md border border-rose-500 px-6 py-3 rounded-full shadow-lg">
-                        ✈️ 대한항공 (KE) 프레스티지급 일정
+                        ✈️ 대한항공 (KE)
                     </div>
                 </div>
+
+                <button onclick="document.getElementById('builder').scrollIntoView({behavior: 'smooth'})" class="bg-white text-rose-600 font-bold px-8 py-4 rounded-full shadow-2xl hover:bg-rose-50 hover:scale-105 transition-all text-lg border-2 border-white">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-2 text-rose-400"></i> 스마트 빌더로 일정 완성하기
+                </button>
             </div>
-            <!-- Scroll Down Indicator -->
+            
             <div class="absolute bottom-8 animate-bounce text-white/50">
                 <i class="fa-solid fa-chevron-down text-2xl"></i>
             </div>
         </section>
 
         <!-- Highlights Section -->
-        <section id="highlight" class="py-20 bg-white">
+        <section id="highlight" class="py-20 bg-white no-print">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <span class="text-rose-600 font-bold tracking-widest text-xs uppercase">Why This Trip?</span>
                     <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2 text-slate-800">허니문 3대 핵심 포인트</h2>
                 </div>
                 <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-                    <!-- Point 1 -->
                     <div class="bg-rose-50/50 border border-rose-100 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all flex flex-col items-center text-center group">
-                        <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                            💎
-                        </div>
+                        <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">💎</div>
                         <h3 class="text-xl font-bold mb-3 text-slate-800">All Private Care</h3>
                         <p class="text-slate-600 text-sm leading-relaxed mb-4">
                             다른 팀 눈치 볼 필요 없는 <strong>단독 가이드 & 전용 차량</strong>.<br>
-                            불필요한 쇼핑센터 방문과 기사/가이드 팁이 없는<br>
-                            <strong>'노팁/노쇼핑'</strong> 고품격 행사입니다.
+                            불필요한 쇼핑센터 방문과 기사/가이드 팁이 없는 <strong>'노팁/노쇼핑'</strong> 고품격 행사입니다.
                         </p>
                     </div>
-                    <!-- Point 2 -->
                     <div class="bg-rose-50/50 border border-rose-100 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all flex flex-col items-center text-center group">
-                        <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                            🏰
-                        </div>
+                        <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">🏰</div>
                         <h3 class="text-xl font-bold mb-3 text-slate-800">Royal Luxury Stay</h3>
                         <p class="text-slate-600 text-sm leading-relaxed mb-4">
                             발리 시내의 중심 <strong>쉐라톤 꾸따(3박)</strong>와<br>
@@ -191,16 +211,12 @@
                             여행의 목적에 맞는 최적의 숙소 배합입니다.
                         </p>
                     </div>
-                    <!-- Point 3 -->
                     <div class="bg-rose-50/50 border border-rose-100 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all flex flex-col items-center text-center group">
-                        <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                            💆‍♀️
-                        </div>
+                        <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">💆‍♀️</div>
                         <h3 class="text-xl font-bold mb-3 text-slate-800">Perfect Healing</h3>
                         <p class="text-slate-600 text-sm leading-relaxed mb-4">
                             여행의 피로를 풀어줄 <strong>스파 마사지 총 3회</strong>.<br>
-                            매일 내 맘대로 고르는 <strong>선택형 일정과 식사</strong>로<br>
-                            만족도 100%의 허니문을 완성합니다.
+                            매일 내 맘대로 고르는 <strong>선택형 일정과 식사</strong>로 만족도 100%의 허니문을 완성합니다.
                         </p>
                     </div>
                 </div>
@@ -208,7 +224,7 @@
         </section>
 
         <!-- Luxury Stay Section (Accommodations) -->
-        <section id="stay" class="py-20 bg-slate-50">
+        <section id="stay" class="py-20 bg-slate-50 no-print">
             <div class="container mx-auto px-4">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-12">
@@ -233,16 +249,10 @@
                                     <li class="flex items-center"><i class="fa-solid fa-check text-rose-400 mr-2"></i> 리조트 런치/디너 포함</li>
                                     <li class="flex items-center"><i class="fa-solid fa-check text-rose-400 mr-2"></i> 울루와뚜 지역 위치</li>
                                 </ul>
-                                <a href="https://www.google.com/maps/search/?api=1&query=Jumeirah+Bali" target="_blank" class="inline-flex items-center text-rose-600 font-bold hover:underline mt-2">
-                                    <i class="fa-solid fa-map-location-dot mr-2"></i> 구글 지도로 위치 보기
-                                </a>
                             </div>
                             <div class="order-1 lg:order-2 grid grid-cols-2 gap-3">
-                                <!-- 쥬메이라 대표 이미지 -->
                                 <img src="https://img.modetour.com/eagle/photoimg/69115/bfile/638114758738263192.jpg?resize=y&resize_w=395&resize_h=236&w_h_fill=y" alt="쥬메이라 전경" class="col-span-2 w-full h-64 object-cover rounded-2xl shadow-md hover-zoom">
-                                <!-- 쥬메이라 침실 -->
                                 <img src="https://cdn.jumeirah.com/api/public/content/bcf15b1fc7f04932839e051942fdd3ec?v=75fa1317" alt="쥬메이라 침실" class="w-full h-40 object-cover rounded-xl shadow-sm hover-zoom">
-                                <!-- 쥬메이라 풀 -->
                                 <img src="https://cdn.jumeirah.com/api/public/content/d8a1a64762624b25818c66c5341ce045?v=0be82fee" alt="쥬메이라 풀" class="w-full h-40 object-cover rounded-xl shadow-sm hover-zoom">
                             </div>
                         </div>
@@ -252,11 +262,8 @@
                         <!-- Hotel 2: Sheraton -->
                         <div class="grid lg:grid-cols-2 gap-8 items-center">
                             <div class="grid grid-cols-2 gap-3">
-                                <!-- 쉐라톤 대표 이미지 -->
                                 <img src="https://img.modetour.com/eagle/photoimg/41402/bfile/635902102495741419.jpg?resize=y&resize_w=395&resize_h=236&w_h_fill=y" alt="쉐라톤 외관" class="col-span-2 w-full h-64 object-cover rounded-2xl shadow-md hover-zoom">
-                                <!-- 쉐라톤 수영장 -->
                                 <img src="https://cache.marriott.com/content/dam/marriott-renditions/DPSKS/dpsks-pool-1292-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=375px:*" alt="쉐라톤 풀" class="w-full h-40 object-cover rounded-xl shadow-sm hover-zoom">
-                                <!-- 쉐라톤 객실 -->
                                 <img src="https://tse2.mm.bing.net/th/id/OIP.LFfevLiKrNyLMejqd2GT3gHaEK?w=474&h=379&c=7&p=0" alt="쉐라톤 객실" class="w-full h-40 object-cover rounded-xl shadow-sm hover-zoom">
                             </div>
                             <div class="space-y-6">
@@ -273,9 +280,6 @@
                                     <li class="flex items-center"><i class="fa-solid fa-check text-rose-400 mr-2"></i> 인피니티 풀 보유</li>
                                     <li class="flex items-center"><i class="fa-solid fa-check text-rose-400 mr-2"></i> 오션뷰 객실 (일부)</li>
                                 </ul>
-                                <a href="https://www.google.com/maps/search/?api=1&query=Sheraton+Bali+Kuta+Resort" target="_blank" class="inline-flex items-center text-rose-600 font-bold hover:underline mt-2">
-                                    <i class="fa-solid fa-map-location-dot mr-2"></i> 구글 지도로 위치 보기
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -283,27 +287,26 @@
             </div>
         </section>
 
-        <!-- Your Choice Section (Tours & Dining) -->
-        <section id="choices" class="py-20 bg-white">
+        <!-- Your Choice Section (Visual Gallery) -->
+        <section id="choices" class="py-20 bg-white no-print">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <span class="text-rose-600 font-bold tracking-widest uppercase">Customizable Experience</span>
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2">취향대로 고르는 특별한 경험</h2>
-                    <p class="text-slate-500 mt-4">현지 가이드와 상의하여 원하는 일정과 메뉴를 선택하세요.</p>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2">미리보는 선택 관광 & 디너</h2>
+                    <p class="text-slate-500 mt-4">어떤 옵션들이 있는지 사진으로 먼저 확인하고, 아래 '스마트 빌더'에서 담아보세요.</p>
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-                    <!-- Card 1: Choice Tour -->
+                    <!-- Tour Gallery -->
                     <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all group h-full">
                         <div class="relative h-48 bg-slate-900 overflow-hidden">
-                            <!-- 발리 투어 대표 사진 -->
                             <img src="https://tse4.mm.bing.net/th/id/OIP.cRGs0nlz0_XH7k9LNJ-x9gHaES?w=474&h=379&c=7&p=0" alt="Bali Tour" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-0 flex items-center justify-center">
                                 <h3 class="text-2xl font-bold text-white tracking-wider border-2 border-white px-6 py-2">SELECT TOUR</h3>
                             </div>
                         </div>
                         <div class="p-8">
-                            <h4 class="font-bold text-lg text-slate-800 mb-4 border-l-4 border-rose-500 pl-3">주요 선택 관광 (택 1)</h4>
+                            <h4 class="font-bold text-lg text-slate-800 mb-4 border-l-4 border-rose-500 pl-3">주요 선택 관광 하이라이트</h4>
                             <ul class="space-y-4">
                                 <li class="flex items-start">
                                     <span class="bg-rose-100 text-rose-800 text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap">인기</span>
@@ -322,35 +325,25 @@
                                 <li class="flex items-start">
                                     <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap">액티브</span>
                                     <div>
-                                        <strong class="text-slate-800 text-sm block">해양 스포츠 팩</strong>
-                                        <p class="text-xs text-slate-500">스노클링 + 제트스키 + 바나나보트 등</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded mr-3 mt-0.5 whitespace-nowrap">힐링</span>
-                                    <div>
-                                        <strong class="text-slate-800 text-sm block">우붓 정글 어드벤처</strong>
-                                        <p class="text-xs text-slate-500">아융강 래프팅 + 발리 스윙 + 오픈카 투어</p>
+                                        <strong class="text-slate-800 text-sm block">해양 스포츠 팩 / 우붓 어드벤처</strong>
+                                        <p class="text-xs text-slate-500">해양3종 또는 아융강 래프팅+발리 스윙+오픈카</p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Card 2: Choice Dining (Enhanced Gallery) -->
+                    <!-- Dining Gallery -->
                     <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all group h-full flex flex-col">
                         <div class="relative h-48 bg-slate-900 overflow-hidden shrink-0">
-                            <!-- 로맨틱 디너 대표 사진 -->
                             <img src="https://www.honeymoonbug.com/blog/wp-content/uploads/2018/06/Make-Your-Getaway-Romantic-In-Kuta.jpg" alt="Romantic Dinner" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-0 flex items-center justify-center">
                                 <h3 class="text-2xl font-bold text-white tracking-wider border-2 border-white px-6 py-2">SELECT DINING</h3>
                             </div>
                         </div>
                         <div class="p-6 flex flex-col h-full">
-                            <h4 class="font-bold text-lg text-slate-800 mb-4 border-l-4 border-rose-500 pl-3">로맨틱 디너 옵션 (택 1)</h4>
-                            <!-- Horizontal Scroll Container -->
+                            <h4 class="font-bold text-lg text-slate-800 mb-4 border-l-4 border-rose-500 pl-3">로맨틱 디너 옵션</h4>
                             <div class="overflow-x-auto no-scrollbar pb-4 flex gap-4 snap-x">
-                                <!-- Item 1 -->
                                 <div class="snap-start shrink-0 w-40 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shadow-sm">
                                     <img src="https://tse2.mm.bing.net/th/id/OIP.GO-HlO77EHRa0jncDF628gHaE7?w=474&h=379&c=7&p=0" class="w-full h-24 object-cover" alt="아마데아">
                                     <div class="p-3">
@@ -358,7 +351,6 @@
                                         <p class="text-[10px] text-slate-500">3코스 셋디너</p>
                                     </div>
                                 </div>
-                                <!-- Item 2 -->
                                 <div class="snap-start shrink-0 w-40 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shadow-sm">
                                     <img src="https://tse1.mm.bing.net/th/id/OIP.cBrJv44gk365sINx0kJXDQHaE7?w=474&h=379&c=7&p=0" class="w-full h-24 object-cover" alt="짐바란 베이">
                                     <div class="p-3">
@@ -366,44 +358,18 @@
                                         <p class="text-[10px] text-slate-500">이탈리안 3코스</p>
                                     </div>
                                 </div>
-                                <!-- Item 3 -->
-                                <div class="snap-start shrink-0 w-40 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shadow-sm">
-                                    <img src="https://tse2.mm.bing.net/th/id/OIP.lRHgciSNDwmfgk3O3M_MAgHaDj?w=474&h=379&c=7&p=0" class="w-full h-24 object-cover" alt="골든튤립">
-                                    <div class="p-3">
-                                        <p class="font-bold text-xs text-slate-800 mb-1">골든튤립 리조트</p>
-                                        <p class="text-[10px] text-slate-500">현지식 셋디너</p>
-                                    </div>
-                                </div>
-                                <!-- Item 4 -->
                                 <div class="snap-start shrink-0 w-40 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shadow-sm">
                                     <img src="https://tse4.mm.bing.net/th/id/OIP.I8ziq0hsYYa-GEISbxIXBAHaFj?w=474&h=379&c=7&p=0" class="w-full h-24 object-cover" alt="짐바란 씨푸드">
                                     <div class="p-3">
                                         <p class="font-bold text-xs text-slate-800 mb-1">짐바란 씨푸드</p>
-                                        <p class="text-[10px] text-slate-500">해변 씨푸드 디너</p>
+                                        <p class="text-[10px] text-slate-500">해변 낭만 만찬</p>
                                     </div>
                                 </div>
-                                <!-- Item 5 -->
                                 <div class="snap-start shrink-0 w-40 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shadow-sm">
                                     <img src="https://tse3.mm.bing.net/th/id/OIP.aYbw7vu-ZMEEDT4Zy0cxlAHaFS?w=474&h=379&c=7&p=0" class="w-full h-24 object-cover" alt="Flavour">
                                     <div class="p-3">
                                         <p class="font-bold text-xs text-slate-800 mb-1">Flavour 레스토랑</p>
                                         <p class="text-[10px] text-slate-500">스테이크/파스타</p>
-                                    </div>
-                                </div>
-                                <!-- Item 6 -->
-                                <div class="snap-start shrink-0 w-40 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shadow-sm">
-                                    <img src="https://tse2.mm.bing.net/th/id/OIP.LYENHWKTugPBPw7uG0LB9QHaE7?cb=defcachec2&w=474&h=379&c=7&p=0" class="w-full h-24 object-cover" alt="한식">
-                                    <div class="p-3">
-                                        <p class="font-bold text-xs text-slate-800 mb-1">한식 (제주돈/강남)</p>
-                                        <p class="text-[10px] text-slate-500">한식 정찬</p>
-                                    </div>
-                                </div>
-                                <!-- Item 7 -->
-                                <div class="snap-start shrink-0 w-40 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shadow-sm">
-                                    <img src="https://tse4.mm.bing.net/th/id/OIP._GkqVUdm8sOj7i_DhmHVZQHaE8?cb=defcache2&defcache=1&w=474&h=379&c=7&p=0" class="w-full h-24 object-cover" alt="뽄독">
-                                    <div class="p-3">
-                                        <p class="font-bold text-xs text-slate-800 mb-1">뽄독 템포둘루</p>
-                                        <p class="text-[10px] text-slate-500">전통 현지식</p>
                                     </div>
                                 </div>
                             </div>
@@ -416,103 +382,521 @@
             </div>
         </section>
 
-        <!-- Mood Preview (Video) -->
-        <section id="mood" class="py-20 bg-slate-50 border-t border-slate-200">
-            <div class="container mx-auto px-4">
+        <!-- ⭐ NEW: Culture / History / Food Section ⭐ -->
+        <section id="culture" class="py-20 bg-white no-print border-t border-slate-100">
+            <div class="container mx-auto px-4 max-w-6xl">
                 <div class="text-center mb-12">
-                    <span class="text-rose-600 font-bold tracking-widest uppercase">Mood Preview</span>
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2">미리 만나는 발리의 낭만</h2>
+                    <span class="text-amber-600 font-bold tracking-widest uppercase text-xs">Bali Insights</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2 text-slate-800">알고 가면 더 깊어지는 발리</h2>
+                    <p class="text-slate-500 mt-4 text-sm">가이드에게 사랑받는 생존 언어부터 힌두 문화의 매력까지 미리 만나보세요.</p>
                 </div>
-                
-                <div class="max-w-4xl mx-auto">
-                    <!-- Video Container -->
-                    <div class="bg-white p-3 rounded-2xl shadow-xl border border-rose-100">
-                        <div class="relative aspect-video rounded-xl overflow-hidden bg-slate-900 cursor-pointer group" onclick="playVideo(this, '0TwaLheU1qg')">
-                            <!-- Thumbnail (YouTube Default) -->
-                            <img src="https://img.youtube.com/vi/0TwaLheU1qg/maxresdefault.jpg" alt="Bali Mood Video" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
-                            
-                            <!-- Play Button -->
-                            <div class="absolute inset-0 flex items-center justify-center play-overlay">
-                                <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white play-icon">
-                                    <span class="text-white text-4xl ml-2">▶</span>
+
+                <!-- Culture Tabs -->
+                <div class="bg-slate-50 rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="flex border-b border-slate-200 overflow-x-auto no-scrollbar bg-white">
+                        <button class="culture-tab active flex-1 py-4 px-6 font-bold text-sm text-amber-600 border-b-2 border-amber-600 whitespace-nowrap" data-target="c-culture">
+                            <i class="fa-solid fa-om mr-2"></i>종교/문화
+                        </button>
+                        <button class="culture-tab flex-1 py-4 px-6 font-bold text-sm text-slate-500 border-b-2 border-transparent hover:text-amber-600 whitespace-nowrap" data-target="c-language">
+                            <i class="fa-solid fa-language mr-2"></i>생존 언어
+                        </button>
+                        <button class="culture-tab flex-1 py-4 px-6 font-bold text-sm text-slate-500 border-b-2 border-transparent hover:text-amber-600 whitespace-nowrap" data-target="c-food">
+                            <i class="fa-solid fa-utensils mr-2"></i>로컬 미식
+                        </button>
+                        <button class="culture-tab flex-1 py-4 px-6 font-bold text-sm text-slate-500 border-b-2 border-transparent hover:text-amber-600 whitespace-nowrap" data-target="c-etiquette">
+                            <i class="fa-solid fa-hands-praying mr-2"></i>여행 매너
+                        </button>
+                    </div>
+
+                    <div class="p-6 md:p-8">
+                        <!-- Culture -->
+                        <div id="c-culture" class="culture-content block animate-fade-in">
+                            <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-800 mb-3 border-l-4 border-amber-500 pl-3">신들의 섬, 발리 힌두교</h3>
+                                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                        인도네시아는 세계 최대의 이슬람 국가지만, **발리만은 인구의 90% 이상이 발리 힌두교**를 믿습니다. 거리 곳곳에서 신에게 바치는 작은 제물인 **'짜낭 사리(Canang Sari)'**를 볼 수 있습니다. 꽃과 향으로 장식된 이 제물은 매일 아침 길가나 상점 앞에 놓이므로, 밟지 않도록 주의하는 것이 발리 여행의 첫 번째 예절입니다.
+                                    </p>
+                                    <h4 class="font-bold text-slate-800 mb-2">🎈 특별한 명절: 녜삐 데이 (Nyepi)</h4>
+                                    <p class="text-slate-600 text-sm leading-relaxed">
+                                        발리의 새해인 녜삐 데이는 '침묵의 날'입니다. 이 날은 악령들이 섬이 비어있는 줄 알고 지나가도록, 모든 불을 끄고 외출을 금지하며 심지어 공항도 폐쇄됩니다. (보통 매년 3월 경)
+                                    </p>
                                 </div>
-                            </div>
-                            
-                            <!-- Text Overlay -->
-                            <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
-                                <p class="text-white font-bold text-xl font-serif">New Bali: Luxury Travel</p>
-                                <p class="text-white/80 text-sm">Tourmaker Curated</p>
+                                <img src="https://tse1.mm.bing.net/th/id/OIP.0zJcJYUG7QACyO9gMFEm1QHaE7?w=474&h=474&c=7&p=0" alt="Bali Canang Sari" class="w-full h-56 object-cover rounded-xl shadow-md">
                             </div>
                         </div>
+
+                        <!-- Language -->
+                        <div id="c-language" class="culture-content hidden animate-fade-in">
+                            <h3 class="text-xl font-bold text-slate-800 mb-5 border-l-4 border-amber-500 pl-3">가이드가 감동하는 생존 인니/발리어</h3>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-white p-4 rounded-lg border border-slate-100 shadow-sm flex items-center justify-between">
+                                    <span class="text-slate-500 text-sm">안녕하세요 (아침/점심/저녁)</span>
+                                    <strong class="text-amber-600">슬라맛 파기 / 시앙 / 말람</strong>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-slate-100 shadow-sm flex items-center justify-between">
+                                    <span class="text-slate-500 text-sm">감사합니다 / 천만에요</span>
+                                    <strong class="text-amber-600">뜨리마 까시 / 사마사마</strong>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-slate-100 shadow-sm flex items-center justify-between">
+                                    <span class="text-slate-500 text-sm">너무 맛있어요!</span>
+                                    <strong class="text-amber-600">에낙 스깔리! (Enak sekali)</strong>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-slate-100 shadow-sm flex items-center justify-between">
+                                    <span class="text-slate-500 text-sm">깎아주세요 (애교)</span>
+                                    <strong class="text-amber-600">민따 디스꼰~ / 마할 (비싸요)</strong>
+                                </div>
+                                <div class="bg-amber-50 sm:col-span-2 p-4 rounded-lg border border-amber-100 flex items-start gap-3 mt-2">
+                                    <i class="fa-regular fa-lightbulb text-amber-500 mt-1"></i>
+                                    <p class="text-sm text-amber-800 font-bold leading-relaxed">
+                                        투어메이커 꿀팁: 기사님이나 가이드님에게 "뜨리마까시~" 한 마디만 웃으며 건네도, 두 분의 여행이 두 배는 더 즐거워지고 더 많은 배려를 받게 됩니다!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Food -->
+                        <div id="c-food" class="culture-content hidden animate-fade-in">
+                            <h3 class="text-xl font-bold text-slate-800 mb-5 border-l-4 border-amber-500 pl-3">꼭 맛봐야 할 발리 미식 4대장</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm text-center pb-3">
+                                    <img src="https://tse1.mm.bing.net/th/id/OIP.wcQIQytb7b55P--hLOQHegHaHr?w=474&h=474&c=7&p=0" alt="Nasi Goreng" class="w-full h-32 object-cover mb-2">
+                                    <strong class="text-slate-800 text-sm">나시 고렝</strong>
+                                    <p class="text-xs text-slate-500 mt-1 px-2">호불호 없는 인도네시아식 단짠 볶음밥. 계란 프라이는 필수!</p>
+                                </div>
+                                <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm text-center pb-3">
+                                    <img src="https://tse2.mm.bing.net/th/id/OIP.HAo8olaN1v2FQuNFJlJpvAHaJ4?w=474&h=474&c=7&p=0" alt="Mie Goreng" class="w-full h-32 object-cover mb-2">
+                                    <strong class="text-slate-800 text-sm">미 고렝</strong>
+                                    <p class="text-xs text-slate-500 mt-1 px-2">에그 누들을 볶아낸 볶음면. 맥주 안주로 기가 막힙니다.</p>
+                                </div>
+                                <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm text-center pb-3">
+                                    <img src="https://tse1.mm.bing.net/th/id/OIP.PICbmlM9RcqIexcDM0f6MgHaLH?w=474&h=474&c=7&p=0" alt="Sate" class="w-full h-32 object-cover mb-2">
+                                    <strong class="text-slate-800 text-sm">사떼 (Sate)</strong>
+                                    <p class="text-xs text-slate-500 mt-1 px-2">땅콩 소스에 찍어 먹는 숯불 꼬치구이. 닭고기(아얌)가 인기.</p>
+                                </div>
+                                <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm text-center pb-3">
+                                    <img src="https://tse3.mm.bing.net/th/id/OIP.ZVqsCwNttcWSLJ3C10w4rQHaE8?w=474&h=474&c=7&p=0" alt="Babi Guling" class="w-full h-32 object-cover mb-2">
+                                    <strong class="text-slate-800 text-sm">바비 굴링</strong>
+                                    <p class="text-xs text-slate-500 mt-1 px-2">발리에서만 주로 파는 새끼 돼지 통구이. 바삭한 껍질이 일품.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Etiquette -->
+                        <div id="c-etiquette" class="culture-content hidden animate-fade-in">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 border-l-4 border-amber-500 pl-3">눈살 찌푸리지 않는 여행 매너</h3>
+                            <ul class="space-y-4 mt-4">
+                                <li class="flex items-start gap-3 bg-white p-4 rounded-lg border border-slate-100 shadow-sm">
+                                    <i class="fa-solid fa-person-dress text-2xl text-amber-500 mt-1"></i>
+                                    <div>
+                                        <strong class="text-slate-800 text-sm">사원 방문 시 '사롱(Sarong)' 착용 필수</strong>
+                                        <p class="text-xs text-slate-600 mt-1">울루와뚜, 램푸양 등 사원에 갈 때는 무릎을 덮어야 합니다. 짧은 옷을 입었다면 입구에서 무료로 빌려주는 천(사롱)을 허리에 두르고 입장해야 합니다.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3 bg-white p-4 rounded-lg border border-slate-100 shadow-sm">
+                                    <i class="fa-solid fa-hand text-2xl text-amber-500 mt-1"></i>
+                                    <div>
+                                        <strong class="text-slate-800 text-sm">머리 쓰다듬기와 왼손 사용 주의</strong>
+                                        <p class="text-xs text-slate-600 mt-1">발리인들은 머리를 신성하게 여깁니다. 귀엽다고 아이의 머리를 쓰다듬지 마세요. 또한 식사를 하거나 물건을 건넬 때는 부정하게 여기는 왼손 대신 오른손을 사용하세요.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3 bg-white p-4 rounded-lg border border-slate-100 shadow-sm">
+                                    <i class="fa-solid fa-bottle-water text-2xl text-amber-500 mt-1"></i>
+                                    <div>
+                                        <strong class="text-slate-800 text-sm">수돗물(Tap Water) 음용 금지 - '발리 벨리' 주의</strong>
+                                        <p class="text-xs text-slate-600 mt-1">양치나 식수는 반드시 생수(미네랄 워터)를 사용하세요. 길거리 음식의 얼음도 장이 예민하신 분들은 주의하는 것이 좋습니다.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <p class="text-center text-slate-500 text-sm mt-4">
-                        <i class="fa-solid fa-headphones mr-1"></i> 영상을 재생하고 발리의 분위기를 미리 느껴보세요.
-                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Timeline Section -->
-        <section id="timeline" class="py-20 bg-white">
+        <!-- ⭐ NEW: Weather & Money Section ⭐ -->
+        <section id="weather-money" class="py-20 bg-slate-100 no-print border-t border-slate-200">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="grid lg:grid-cols-2 gap-10">
+                    
+                    <!-- Weather Column -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="bg-sky-500 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-md"><i class="fa-solid fa-cloud-sun"></i></span>
+                            <h2 class="text-2xl font-bold text-slate-800">실시간 주간 날씨 & 옷차림</h2>
+                        </div>
+                        
+                        <!-- Weather Widget -->
+                        <div class="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden mb-6">
+                            <div class="bg-sky-50 p-4 border-b border-sky-100 flex justify-between items-center">
+                                <span class="font-bold text-sky-800 text-sm"><i class="fa-solid fa-location-dot mr-1"></i> 인도네시아 발리</span>
+                                <span class="text-xs text-sky-600" id="weather-status">데이터를 불러오는 중...</span>
+                            </div>
+                            <!-- Horizontal scroll forecast -->
+                            <div class="weather-scroll p-4 gap-3" id="weather-forecast-container">
+                                <!-- Loader / Skeleton -->
+                                <div class="w-full text-center py-6 text-slate-400 text-sm">
+                                    <i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i><br>실시간 기상청 API 연동 중...
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Outfit Recommendation -->
+                        <div class="bg-indigo-50 rounded-2xl p-6 border border-indigo-100 shadow-sm">
+                            <h3 class="font-bold text-indigo-900 mb-3"><i class="fa-solid fa-shirt mr-2"></i> 발리 날씨 맞춤 옷차림 가이드</h3>
+                            <ul class="text-sm text-indigo-800 space-y-2">
+                                <li>✔️ <strong>기본 복장:</strong> 땀 흡수가 잘 되는 면, 린넨 소재의 여름 옷</li>
+                                <li>✔️ <strong>필수 아우터:</strong> 실내 에어컨이 강하므로 얇은 가디건이나 바람막이 1벌</li>
+                                <li>✔️ <strong>액티비티용:</strong> 래쉬가드, 아쿠아슈즈 (해양스포츠/우붓투어 시)</li>
+                                <li>✔️ <strong>햇빛 차단:</strong> 선글라스, 챙 넓은 모자, 선크림 듬뿍 필수!</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Money Column -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="bg-emerald-500 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-md"><i class="fa-solid fa-won-sign"></i></span>
+                            <h2 class="text-2xl font-bold text-slate-800">스마트 환율 & 물가 체감</h2>
+                        </div>
+
+                        <!-- Calculator Widget -->
+                        <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 mb-6">
+                            <div class="flex justify-between items-end mb-4">
+                                <div>
+                                    <h3 class="font-bold text-slate-800">환율 계산기</h3>
+                                    <p class="text-xs text-slate-400 mt-1">기준: 100 루피아(IDR) ≒ 약 8.91원 (안내서 기준)</p>
+                                </div>
+                                <button onclick="swapCurrency()" class="text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full text-xs font-bold border border-emerald-200 hover:bg-emerald-100"><i class="fa-solid fa-arrow-right-arrow-left"></i> 방향 전환</button>
+                            </div>
+
+                            <div class="flex items-center gap-3 mb-2 relative">
+                                <div class="flex-1">
+                                    <label class="block text-xs font-bold text-slate-500 mb-1" id="calc-label-from">인도네시아 루피아 (IDR)</label>
+                                    <div class="relative">
+                                        <!-- 천 단위 콤마 처리를 위해 type="text"로 변경 및 함수 연동 -->
+                                        <input type="text" id="calc-input" value="100,000" class="w-full border border-slate-300 rounded-lg p-3 text-lg font-bold text-slate-800 focus:ring-emerald-500 focus:border-emerald-500" oninput="formatCurrencyInput(this); calculateCurrency()">
+                                    </div>
+                                </div>
+                                <div class="text-slate-300 text-xl pt-5">=</div>
+                                <div class="flex-1">
+                                    <label class="block text-xs font-bold text-slate-500 mb-1" id="calc-label-to">대한민국 원 (KRW)</label>
+                                    <div class="w-full bg-slate-50 border border-slate-200 rounded-lg p-3 text-lg font-bold text-emerald-600" id="calc-result">
+                                        8,910 원
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-[11px] text-slate-500 text-center mt-3"><i class="fa-regular fa-lightbulb text-amber-500"></i> 투어메이커 팁: <strong>발리 물가 계산법!</strong> 루피아에서 0을 하나 빼면 대략 한국 돈 체감 금액이 됩니다. (예: 100,000루피아 -> 약 10,000원)</p>
+                        </div>
+
+                        <!-- Price Comparison -->
+                        <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6">
+                            <h3 class="font-bold text-slate-800 mb-4 text-sm">📊 현지 체감 물가 (한국과 비교)</h3>
+                            <div class="space-y-3">
+                                <!-- item 1 -->
+                                <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xl">☕</span>
+                                        <span class="text-sm text-slate-700">스타벅스 아메리카노</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-sm font-bold text-emerald-600">약 5만 루피아 (약 4,500원)</div>
+                                        <div class="text-[10px] text-slate-400">한국과 비슷함</div>
+                                    </div>
+                                </div>
+                                <!-- item 2 -->
+                                <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xl">🍺</span>
+                                        <span class="text-sm text-slate-700">빈땅 맥주 (마트 기준)</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-sm font-bold text-emerald-600">약 2.5만 루피아 (약 2,200원)</div>
+                                        <div class="text-[10px] text-slate-400">매우 저렴함</div>
+                                    </div>
+                                </div>
+                                <!-- item 3 -->
+                                <div class="flex items-center justify-between pb-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xl">💆</span>
+                                        <span class="text-sm text-slate-700">로컬 전신 마사지 (1H)</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-sm font-bold text-emerald-600">약 10~15만 루피아 (약 1만원대)</div>
+                                        <div class="text-[10px] text-slate-400">한국의 1/3 수준</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Base Timeline Section -->
+        <section id="timeline" class="py-20 bg-white no-print">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-10">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-3">5박 7일 여정 상세</h2>
-                    
-                    <!-- Moved Button -->
-                    <a href="https://www.modetour.com/package/101740364?MLoc=99&Pnum=101740364&Sno=C1091311&ANO=7900804&thru=crs" target="_blank" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white text-xs py-2.5 px-5 rounded-full transition-all shadow-md hover:shadow-lg mb-2">
-                        <span class="font-bold">📄 모두투어 원문 일정표 확인하기</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-3">전체 여정 개요</h2>
+                    <p class="text-slate-500 text-sm mb-4">선택 일정이 포함되지 않은 뼈대가 되는 베이직 일정입니다.</p>
+                    <a href="https://www.modetour.com/package/101740364?MLoc=99&Pnum=101740364&Sno=C1091311&ANO=7900804&thru=crs" target="_blank" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white text-xs py-2.5 px-5 rounded-full transition-all shadow-md mb-2">
+                        <span class="font-bold">📄 모두투어 원문 상품표 확인하기</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
-
-                    <p class="text-rose-500 text-sm font-bold mt-4">※ 현지 사정에 따라 일정은 변경될 수도 있습니다.</p>
-                    <p class="text-slate-500 text-xs">(항공편 및 현지 도로 사정 등)</p>
                 </div>
                 
-                <!-- Tab Navigation -->
                 <div class="max-w-5xl mx-auto bg-slate-50 rounded-t-2xl shadow-sm border-b overflow-hidden flex flex-wrap">
                     <button class="tab-btn active flex-1 py-4 font-bold text-xs md:text-base border-b-4 border-transparent hover:bg-slate-100 transition-colors" data-tab="day1">1일차</button>
-                    <button class="tab-btn flex-1 py-4 font-bold text-xs md:text-base border-b-4 border-transparent hover:bg-slate-100 transition-colors" data-tab="day2">2일차</button>
-                    <button class="tab-btn flex-1 py-4 font-bold text-xs md:text-base border-b-4 border-transparent hover:bg-slate-100 transition-colors text-rose-700" data-tab="day3">3일차</button>
-                    <button class="tab-btn flex-1 py-4 font-bold text-xs md:text-base border-b-4 border-transparent hover:bg-slate-100 transition-colors text-rose-700" data-tab="day4">4~5일차</button>
-                    <button class="tab-btn flex-1 py-4 font-bold text-xs md:text-base border-b-4 border-transparent hover:bg-slate-100 transition-colors" data-tab="day6">6~7일차</button>
+                    <button class="tab-btn flex-1 py-4 font-bold text-xs md:text-base border-b-4 border-transparent hover:bg-slate-100 transition-colors text-rose-700" data-tab="day2">2일차(선택)</button>
+                    <button class="tab-btn flex-1 py-4 font-bold text-xs md:text-base border-b-4 border-transparent hover:bg-slate-100 transition-colors text-rose-700" data-tab="day3">3일차(선택)</button>
+                    <button class="tab-btn flex-1 py-4 font-bold text-xs md:text-base border-b-4 border-transparent hover:bg-slate-100 transition-colors" data-tab="day4">4~5일차</button>
+                    <button class="tab-btn flex-1 py-4 font-bold text-xs md:text-base border-b-4 border-transparent hover:bg-slate-100 transition-colors text-rose-700" data-tab="day6">6~7일차(선택)</button>
                 </div>
 
-                <!-- Tab Content -->
-                <div class="max-w-5xl mx-auto bg-white rounded-b-2xl shadow-xl p-6 md:p-12 min-h-[400px] border border-slate-100">
+                <div class="max-w-5xl mx-auto bg-white rounded-b-2xl shadow-xl p-6 md:p-12 min-h-[350px] border border-slate-100">
                     <div id="tabs-content">
-                        <!-- JS renders content here -->
+                        <!-- JS renders base timeline content here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ⭐ Smart Builder & Curation Section ⭐ -->
+        <section id="builder" class="py-20 bg-rose-50 no-print border-y border-rose-100">
+            <div class="container mx-auto px-4 max-w-7xl">
+                
+                <div class="text-center mb-10">
+                    <span class="bg-rose-200 text-rose-800 px-3 py-1 rounded-full text-xs font-bold mb-3 inline-block"><i class="fa-solid fa-wand-magic-sparkles"></i> SMART BUILDER</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-800">나만의 허니문 일정 세팅하기</h2>
+                    <p class="text-slate-600 mt-3 text-sm">옵션이 너무 많아 고민되시나요? 투어메이커의 강력한 추천 테마를 클릭해보세요!<br>원클릭으로 일정이 자동 세팅되며, 인쇄하여 가이드에게 전달하기 좋습니다.</p>
+                </div>
+
+                <!-- Curation Buttons -->
+                <div class="flex flex-wrap justify-center gap-3 mb-10">
+                    <button onclick="applyCuration('healing')" class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-5 py-3 rounded-xl font-bold hover:bg-emerald-100 transition-all shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-leaf"></i> 완벽한 힐링/휴양파
+                    </button>
+                    <button onclick="applyCuration('active')" class="bg-sky-50 text-sky-700 border border-sky-200 px-5 py-3 rounded-xl font-bold hover:bg-sky-100 transition-all shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-person-swimming"></i> 신나는 액티비티파
+                    </button>
+                    <button onclick="applyCuration('photo')" class="bg-fuchsia-50 text-fuchsia-700 border border-fuchsia-200 px-5 py-3 rounded-xl font-bold hover:bg-fuchsia-100 transition-all shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-camera-retro"></i> 인스타 인생샷파
+                    </button>
+                    <button onclick="applyCuration('reset')" class="text-slate-400 px-3 py-3 rounded-xl font-bold hover:bg-white transition-all flex items-center gap-2 text-sm underline">
+                        <i class="fa-solid fa-rotate-right"></i> 직접 고르기(초기화)
+                    </button>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8" id="builder-controls">
+                    <!-- Left: Form Controls -->
+                    <div class="lg:col-span-7 space-y-8 bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-xl">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2 border-l-4 border-rose-500 pl-3">일자별 선택 옵션</h3>
+                        <p class="text-xs text-rose-500 font-bold mb-6">* 최종 일정은 현지 기상 상황 등에 따라 가이드와 미팅 시 협의 확정됩니다.</p>
+                        
+                        <!-- Day 2 -->
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-slate-800 mb-4 bg-rose-100 inline-block px-3 py-1 rounded text-sm text-rose-800">2일차 일정 (5/26 화)</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">핵심 관광 (1~18번 중 택1)</label>
+                                    <select id="sel_d2_tour" class="w-full border-slate-300 rounded-lg text-sm p-2.5 focus:ring-rose-500 focus:border-rose-500 bg-white shadow-sm" onchange="checkDuplicate(this, 'tour'); updatePreview();">
+                                        <option value="">-- 관광 선택 (택1) --</option>
+                                        <option value="【선택1】 발리동부투어 (램푸양사원/따만우중 등)">【선택1】 발리동부투어 (램푸양사원/따만우중 등)</option>
+                                        <option value="【선택2】 발리북부투어 (히든힐스윙/폭포 등)">【선택2】 발리북부투어 (히든힐스윙/폭포 등)</option>
+                                        <option value="【선택3】 발리남부투어 (울루와뚜/GWK 등)">【선택3】 발리남부투어 (울루와뚜/GWK 등)</option>
+                                        <option value="【선택4】 따나롯 해상사원 지역 투어">【선택4】 따나롯 해상사원 지역 투어</option>
+                                        <option value="【선택5】 정글 어드밴쳐 (래프팅+스윙+오픈카)">【선택5】 정글 어드밴쳐 (래프팅+스윙+오픈카)</option>
+                                        <option value="【선택6】 래프팅 (자연 속 아융강 래프팅)">【선택6】 래프팅 (자연 속 아융강 래프팅)</option>
+                                        <option value="【선택7】 해양스포츠 3종 (스노클링, 제트스키, 바나나보트)">【선택7】 해양스포츠 3종 (스노클링, 제트스키, 바나나보트)</option>
+                                        <option value="【선택8】 우붓 ATV 체험">【선택8】 우붓 ATV 체험</option>
+                                        <option value="【선택9】 씨워커 (해저 보행)">【선택9】 씨워커 (해저 보행)</option>
+                                        <option value="【선택10】 서핑 강습+체험 (꾸따 비치)">【선택10】 서핑 강습+체험 (꾸따 비치)</option>
+                                        <option value="【선택11】 [비용별도] 우붓 발리 스윙 (의상/촬영비 별도)">【선택11】 [비용별도] 우붓 발리 스윙 (의상/촬영비 별도)</option>
+                                        <option value="【선택12】 [비용별도] 전용 차량 자유일정 8H (식사/입장료 개별)">【선택12】 [비용별도] 전용 차량 자유일정 8H (식사/입장료 개별)</option>
+                                        <option value="【선택13】 리조트 내 전일 자유 (런치 제공)">【선택13】 리조트 내 전일 자유 (런치 제공)</option>
+                                        <option value="【선택14】 [사전예약] 워터붐 파크">【선택14】 [사전예약] 워터붐 파크</option>
+                                        <option value="【선택15】 스킨 스쿠버 다이빙">【선택15】 스킨 스쿠버 다이빙</option>
+                                        <option value="【선택16】 [+$30 별도] 누사페니다섬 투어 or 데이크루즈 (사전예약)">【선택16】 [+$30 별도] 누사페니다섬 투어 or 데이크루즈 (사전예약)</option>
+                                        <option value="【선택17】 사파리투어 (사파리+동물쇼 등)">【선택17】 사파리투어 (사파리+동물쇼 등)</option>
+                                        <option value="【선택18】 [+$30 별도] 한국인 작가 스냅 촬영 (사전예약)">【선택18】 [+$30 별도] 한국인 작가 스냅 촬영 (사전예약)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">스파 & 마사지 (택1)</label>
+                                    <select id="sel_d2_spa" class="w-full border-slate-300 rounded-lg text-sm p-2.5 focus:ring-rose-500 focus:border-rose-500 bg-white shadow-sm" onchange="updatePreview()">
+                                        <option value="">-- 스파 선택 --</option>
+                                        <option value="【선택1】 아로마 스파 2시간">【선택1】 아로마 스파 2시간</option>
+                                        <option value="【선택2】 초콜렛 스파 or 초콜렛 스톤 2시간">【선택2】 초콜렛 스파 or 초콜렛 스톤 2시간</option>
+                                        <option value="【선택3】 지압맛사지 2시간">【선택3】 지압맛사지 2시간</option>
+                                    </select>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-600 mb-1">석식 디너 (택1)</label>
+                                        <select id="sel_d2_dinner" class="w-full border-slate-300 rounded-lg text-sm p-2.5 bg-white shadow-sm" onchange="checkDuplicate(this, 'dinner'); updatePreview();">
+                                            <option value="">-- 디너 선택 --</option>
+                                            <option value="【선택1】 아마데아호텔 - 3코스 셋디너">【선택1】 아마데아호텔 - 3코스 셋디너</option>
+                                            <option value="【선택2】 짐바란 베이 비치 호텔 - 이탈리아 3코스">【선택2】 짐바란 베이 비치 호텔 - 이탈리아 3코스</option>
+                                            <option value="【선택3】 골든튤립 - 현지식 셋디너">【선택3】 골든튤립 - 현지식 셋디너</option>
+                                            <option value="【선택4】 짐바란 씨푸드 - 낭만 해변 만찬">【선택4】 짐바란 씨푸드 - 낭만 해변 만찬</option>
+                                            <option value="【선택5】 Flavour - 스테이크 or 파스타 or 피자">【선택5】 Flavour - 스테이크 or 파스타 or 피자</option>
+                                            <option value="【선택6】 제주돈 or 강남 - 한식">【선택6】 제주돈 or 강남 - 한식</option>
+                                            <option value="【선택7】 뽄독 템포둘루 - 현지식">【선택7】 뽄독 템포둘루 - 현지식</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-600 mb-1">나이트 투어 (택1)</label>
+                                        <select id="sel_d2_night" class="w-full border-slate-300 rounded-lg text-sm p-2.5 bg-white shadow-sm" onchange="updatePreview()">
+                                            <option value="">-- 나이트 일정 --</option>
+                                            <option value="포테이토헤드 비치클럽 [음료별도]">포테이토헤드 비치클럽 [음료별도]</option>
+                                            <option value="쿠데타 비치클럽 [음료별도]">쿠데타 비치클럽 [음료별도]</option>
+                                            <option value="스미냑 거리 자유시간">스미냑 거리 자유시간</option>
+                                            <option value="꾸따 거리 자유시간">꾸따 거리 자유시간</option>
+                                            <option value="리조트 조기 복귀 후 휴식">리조트 조기 복귀 후 휴식</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 3 -->
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-slate-800 mb-4 bg-rose-100 inline-block px-3 py-1 rounded text-sm text-rose-800">3일차 일정 (5/27 수)</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">핵심 관광 (1~19번 중 2일차 중복 불가)</label>
+                                    <select id="sel_d3_tour" class="w-full border-slate-300 rounded-lg text-sm p-2.5 focus:ring-rose-500 focus:border-rose-500 bg-white shadow-sm" onchange="checkDuplicate(this, 'tour'); updatePreview();">
+                                        <option value="">-- 관광 선택 (택1) --</option>
+                                        <option value="【선택1】 발리동부투어 (램푸양사원/따만우중 등)">【선택1】 발리동부투어 (램푸양사원/따만우중 등)</option>
+                                        <option value="【선택2】 발리북부투어 (히든힐스윙/폭포 등)">【선택2】 발리북부투어 (히든힐스윙/폭포 등)</option>
+                                        <option value="【선택3】 발리남부투어 (울루와뚜/GWK 등)">【선택3】 발리남부투어 (울루와뚜/GWK 등)</option>
+                                        <option value="【선택4】 따나롯 해상사원 지역 투어">【선택4】 따나롯 해상사원 지역 투어</option>
+                                        <option value="【선택5】 정글 어드밴쳐 (래프팅+스윙+오픈카)">【선택5】 정글 어드밴쳐 (래프팅+스윙+오픈카)</option>
+                                        <option value="【선택6】 래프팅 (자연 속 아융강 래프팅)">【선택6】 래프팅 (자연 속 아융강 래프팅)</option>
+                                        <option value="【선택7】 해양스포츠 3종 (스노클링, 제트스키, 바나나보트)">【선택7】 해양스포츠 3종 (스노클링, 제트스키, 바나나보트)</option>
+                                        <option value="【선택8】 우붓 ATV 체험">【선택8】 우붓 ATV 체험</option>
+                                        <option value="【선택9】 씨워커 (해저 보행)">【선택9】 씨워커 (해저 보행)</option>
+                                        <option value="【선택10】 서핑 강습+체험 (꾸따 비치)">【선택10】 서핑 강습+체험 (꾸따 비치)</option>
+                                        <option value="【선택11】 [비용별도] 우붓 발리 스윙 (의상/촬영비 별도)">【선택11】 [비용별도] 우붓 발리 스윙 (의상/촬영비 별도)</option>
+                                        <option value="【선택12】 [비용별도] 전용 차량 자유일정 8H (식사/입장료 개별)">【선택12】 [비용별도] 전용 차량 자유일정 8H (식사/입장료 개별)</option>
+                                        <option value="【선택13】 리조트 내 전일 자유 (런치 제공)">【선택13】 리조트 내 전일 자유 (런치 제공)</option>
+                                        <option value="【선택14】 [사전예약] 워터붐 파크">【선택14】 [사전예약] 워터붐 파크</option>
+                                        <option value="【선택15】 스킨 스쿠버 다이빙">【선택15】 스킨 스쿠버 다이빙</option>
+                                        <option value="【선택16】 [+$30 별도] 누사페니다섬 투어 or 데이크루즈 (사전예약)">【선택16】 [+$30 별도] 누사페니다섬 투어 or 데이크루즈 (사전예약)</option>
+                                        <option value="【선택17】 사파리투어 (사파리+동물쇼 등)">【선택17】 사파리투어 (사파리+동물쇼 등)</option>
+                                        <option value="【선택18】 [+$30 별도] 한국인 작가 스냅 촬영 (사전예약)">【선택18】 [+$30 별도] 한국인 작가 스냅 촬영 (사전예약)</option>
+                                        <option value="【선택19】 [+$30 별도] 바투르산 지프 투어 (일출/블랙라바)">【선택19】 [+$30 별도] 바투르산 지프 투어 (일출/블랙라바) *3일차 전용</option>
+                                    </select>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-600 mb-1">스파 & 마사지 (택1)</label>
+                                        <select id="sel_d3_spa" class="w-full border-slate-300 rounded-lg text-sm p-2.5 bg-white shadow-sm" onchange="updatePreview()">
+                                            <option value="">-- 스파 선택 --</option>
+                                            <option value="【선택1】 아로마 스파 2시간">【선택1】 아로마 스파 2시간</option>
+                                            <option value="【선택2】 초콜렛 스파 or 초콜렛 스톤 2시간">【선택2】 초콜렛 스파 or 초콜렛 스톤 2시간</option>
+                                            <option value="【선택3】 지압맛사지 2시간">【선택3】 지압맛사지 2시간</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-600 mb-1">석식 디너 (택1)</label>
+                                        <select id="sel_d3_dinner" class="w-full border-slate-300 rounded-lg text-sm p-2.5 bg-white shadow-sm" onchange="checkDuplicate(this, 'dinner'); updatePreview();">
+                                            <option value="">-- 디너 선택 --</option>
+                                            <option value="【선택1】 아마데아호텔 - 3코스 셋디너">【선택1】 아마데아호텔 - 3코스 셋디너</option>
+                                            <option value="【선택2】 짐바란 베이 비치 호텔 - 이탈리아 3코스">【선택2】 짐바란 베이 비치 호텔 - 이탈리아 3코스</option>
+                                            <option value="【선택3】 골든튤립 - 현지식 셋디너">【선택3】 골든튤립 - 현지식 셋디너</option>
+                                            <option value="【선택4】 짐바란 씨푸드 - 낭만 해변 만찬">【선택4】 짐바란 씨푸드 - 낭만 해변 만찬</option>
+                                            <option value="【선택5】 Flavour - 스테이크 or 파스타 or 피자">【선택5】 Flavour - 스테이크 or 파스타 or 피자</option>
+                                            <option value="【선택6】 제주돈 or 강남 - 한식">【선택6】 제주돈 or 강남 - 한식</option>
+                                            <option value="【선택7】 뽄독 템포둘루 - 현지식">【선택7】 뽄독 템포둘루 - 현지식</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 6 -->
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-slate-800 mb-4 bg-slate-200 inline-block px-3 py-1 rounded text-sm">6일차 체크아웃 후 일정 (5/30 토)</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1">마지막 관광 (택1)</label>
+                                    <select id="sel_d6_tour" class="w-full border-slate-300 rounded-lg text-sm p-2.5 focus:ring-rose-500 focus:border-rose-500 bg-white shadow-sm" onchange="updatePreview()">
+                                        <option value="">-- 관광 선택 --</option>
+                                        <option value="울루와뚜 절벽사원 및 빠당빠당 비치">울루와뚜 절벽사원 및 빠당빠당 비치</option>
+                                        <option value="우붓 반나절 투어 (시장/왕궁)">우붓 반나절 투어 (시장/왕궁)</option>
+                                    </select>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-600 mb-1">마지막 피로 회복 (택1)</label>
+                                        <select id="sel_d6_spa" class="w-full border-slate-300 rounded-lg text-sm p-2.5 bg-white shadow-sm" onchange="updatePreview()">
+                                            <option value="">-- 스파 선택 --</option>
+                                            <option value="【선택1】 아로마 스파 2시간">【선택1】 아로마 스파 2시간</option>
+                                            <option value="【선택3】 지압맛사지 2시간">【선택3】 지압맛사지 2시간</option>
+                                            <option value="발 마사지 (출국 전 1시간)">발 마사지 (출국 전 1시간)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-slate-600 mb-1">마지막 만찬</label>
+                                        <input type="text" value="현지식 또는 가이드 상의" disabled class="w-full border-slate-200 rounded-lg text-sm p-2.5 bg-slate-200 text-slate-500 cursor-not-allowed">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Live Preview Timeline -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="sticky top-20 bg-white rounded-2xl border border-rose-200 shadow-2xl overflow-hidden flex flex-col h-[780px]">
+                            <div class="bg-slate-900 text-white p-5 text-center shrink-0 border-b-4 border-rose-500">
+                                <h3 class="font-serif font-bold text-xl">나만의 일정표</h3>
+                                <p class="text-xs text-slate-300 mt-1">완성된 일정을 인쇄하여 가이드에게 전달해 보세요.</p>
+                            </div>
+                            
+                            <!-- Timeline Content Area -->
+                            <div id="timeline-preview" class="p-6 overflow-y-auto flex-grow custom-scrollbar space-y-8 bg-slate-50">
+                                <!-- JS Injected via updatePreview() -->
+                            </div>
+
+                            <!-- Footer Actions -->
+                            <div class="p-4 bg-white border-t border-slate-200 shrink-0 grid grid-cols-2 gap-3">
+                                <button onclick="window.print()" class="w-full bg-rose-600 text-white py-3 rounded-xl font-bold hover:bg-rose-700 transition shadow-md flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-file-pdf"></i> PDF저장/인쇄
+                                </button>
+                                <a href="#pretravel" class="w-full bg-slate-100 text-slate-700 border border-slate-300 py-3 rounded-xl font-bold hover:bg-slate-200 transition shadow-sm flex items-center justify-center gap-2 text-center">
+                                    <i class="fa-solid fa-suitcase"></i> 짐싸기 체크
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Pre-Travel & Personal Assistant -->
-        <section id="pretravel" class="py-20 bg-slate-50">
+        <section id="pretravel" class="py-20 bg-white no-print">
             <div class="container mx-auto px-4">
                 <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
                     
                     <!-- 1. Airport Meeting & Essentials -->
                     <div class="space-y-8">
-                        <h2 class="text-2xl font-bold text-slate-800"><i class="fa-solid fa-passport text-rose-600 mr-2"></i> 출발 안내</h2>
+                        <h2 class="text-2xl font-bold text-slate-800 border-b pb-2"><i class="fa-solid fa-passport text-rose-600 mr-2"></i> 출국 및 준비물 안내</h2>
                         
                         <!-- Meeting Card -->
-                        <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-rose-500">
-                            <h3 class="font-bold text-lg mb-4 text-slate-900">🛫 인천공항 출국 안내</h3>
+                        <div class="bg-slate-50 p-6 rounded-2xl shadow-sm border-l-4 border-rose-500">
+                            <h3 class="font-bold text-lg mb-4 text-slate-900">🛫 인천공항 수속 안내</h3>
                             <div class="space-y-4 text-sm text-slate-700">
-                                <div class="p-3 bg-slate-50 rounded-lg">
+                                <div class="p-3 bg-white rounded-lg border border-slate-200">
                                     <p class="font-bold text-slate-800 mb-1">기본: 개별 수속</p>
-                                    <p class="text-xs text-slate-600">공항 도착 후 별도 미팅 없이 바로 <strong>인천공항 제2터미널</strong>에서 개별적으로 수속을 진행해주세요. (출발 3시간 전 도착 권장)</p>
+                                    <p class="text-xs text-slate-600">인천공항 <strong>제2터미널</strong>에서 개별 수속을 진행해주세요. (출발 3시간 전 도착 권장)</p>
                                 </div>
-                                
                                 <div class="p-3 bg-rose-50 rounded-lg border border-rose-100">
                                     <p class="font-bold text-rose-700 mb-1">선택: 미팅 서비스 신청자</p>
-                                    <p class="text-xs text-rose-600">
-                                        <strong>제2터미널 A카운터 1번 출구 앞</strong><br>
-                                        1~2번 모두투어 테이블에서 미팅 진행
-                                    </p>
+                                    <p class="text-xs text-rose-600">제2터미널 A카운터 1번 출구 앞 (모두투어 테이블)</p>
                                 </div>
-
-                                <div class="flex justify-between pt-2 border-t border-slate-100">
+                                <div class="flex justify-between pt-2 border-t border-slate-200">
                                     <span class="text-slate-500">편명</span>
                                     <strong>대한항공 KE433 (18:00 출발)</strong>
                                 </div>
@@ -525,7 +909,7 @@
                                 <h3 class="font-bold text-lg text-slate-900">🎒 허니문 체크리스트</h3>
                                 <button onclick="resetChecklist()" class="text-xs text-slate-400 hover:text-rose-600 underline">초기화</button>
                             </div>
-                            <div id="checklist-container" class="space-y-3 h-[250px] overflow-y-auto pr-2 custom-scrollbar">
+                            <div id="checklist-container" class="space-y-3 h-[250px] overflow-y-auto pr-2">
                                 <!-- JS items -->
                             </div>
                         </div>
@@ -533,13 +917,13 @@
 
                     <!-- 2. My Yellow Note -->
                     <div id="mynote" class="flex flex-col h-full">
-                        <h2 class="text-2xl font-bold text-slate-800 mb-8"><i class="fa-solid fa-pen-fancy text-amber-500 mr-2"></i> MY 노트</h2>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-8 border-b pb-2"><i class="fa-solid fa-pen-fancy text-amber-500 mr-2"></i> MY 노트</h2>
                         <div class="relative flex-grow">
                             <textarea id="travel-memo" 
-                                class="notepad w-full h-[450px] p-6 text-base text-slate-700 resize-none rounded-r-lg"
-                                placeholder="쇼핑 리스트, 선물 목록, 현지에서 쓸 예산 등...&#10;두 분만의 여행 계획을 자유롭게 적어보세요.&#10;(내용은 핸드폰에 자동 저장됩니다)"></textarea>
+                                class="notepad w-full h-[510px] p-6 text-base text-slate-700 resize-none rounded-r-lg"
+                                placeholder="쇼핑 리스트, 면세점 구입품목, 현지에서 쓸 예산 등...&#10;두 분만의 여행 계획을 자유롭게 적어보세요.&#10;(내용은 핸드폰에 자동 저장됩니다)"></textarea>
                             
-                            <div id="save-status" class="absolute bottom-4 right-4 text-xs text-slate-400">
+                            <div id="save-status" class="absolute bottom-4 right-4 text-xs text-slate-400 font-bold bg-white/80 px-2 rounded">
                                 자동 저장 대기중...
                             </div>
                         </div>
@@ -550,58 +934,103 @@
         </section>
 
         <!-- Emergency Contact -->
-        <section class="py-12 bg-slate-900 text-slate-300 border-t border-slate-800">
+        <section id="emergency" class="py-12 bg-slate-900 text-slate-300 border-t border-slate-800 no-print">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-lg font-bold text-white mb-6">비상 연락망</h2>
                 <div class="flex flex-wrap justify-center gap-4 md:gap-10 text-sm">
-                    <div class="bg-slate-800 px-6 py-3 rounded-lg">
+                    <div class="bg-slate-800 px-6 py-3 rounded-lg border border-slate-700">
                         <span class="block text-xs text-slate-500 mb-1">투어메이커 (한국)</span>
                         <a href="tel:01094437881" class="text-rose-400 font-bold">010-9443-7881 (이재명)</a>
                     </div>
-                    <div class="bg-slate-800 px-6 py-3 rounded-lg">
+                    <div class="bg-slate-800 px-6 py-3 rounded-lg border border-slate-700">
                         <span class="block text-xs text-slate-500 mb-1">현지 영사관</span>
                         <a href="tel:+622129672580" class="text-white font-bold">+62-21-2967-2580</a>
                     </div>
-                    <div class="bg-slate-800 px-6 py-3 rounded-lg">
+                    <div class="bg-slate-800 px-6 py-3 rounded-lg border border-slate-700">
                         <span class="block text-xs text-slate-500 mb-1">현지 가이드</span>
-                        <span class="text-white font-bold">미팅 후 안내 예정</span>
+                        <span class="text-white font-bold">발리 공항 미팅 후 안내 예정</span>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ⭐ Print Area (Hidden on screen, visible ONLY on print/PDF) ⭐ -->
+        <div id="print-area" class="hidden">
+            <div style="text-align:center; margin-bottom: 20px;">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" style="height: 40px; margin: 0 auto;" alt="투어메이커">
+                <h2 style="margin-top: 15px;">김성환 & 신하림 님의 일정표</h2>
+                <p style="font-size: 14pt;"><strong>일정:</strong> 2026.05.25(월) ~ 05.31(일) [5박 7일]</p>
+                <p style="font-size: 14pt;"><strong>호텔:</strong> 쉐라톤 꾸따 (3박) + 쥬메이라 풀빌라 (2박)</p>
+                <p style="font-size: 14pt; color:#be123c; font-weight:bold;"><strong>비상연락망:</strong> 투어메이커 010-9443-7881</p>
+                <hr style="margin-top:20px; border-color:#be123c; border-width: 2px;">
+            </div>
+            
+            <div id="print-content-container">
+                <!-- JS Injected Print Content -->
+            </div>
+            
+            <div style="margin-top:40px; text-align:center; font-size:10pt; color:#666; border-top: 1px solid #ccc; padding-top: 20px;">
+                * 본 일정은 고객님의 선택을 바탕으로 구성된 가이드라인이며, 현지 기상 상황 및 가이드와의 협의에 따라 유연하게 변경될 수 있습니다. 평생 기억될 아름다운 허니문 되시길 바랍니다.
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-500 py-12 text-center">
+    <footer class="bg-slate-950 text-slate-500 py-10 text-center no-print">
         <div class="container mx-auto px-4">
-            
-            <div class="max-w-2xl mx-auto border-t border-slate-800 pt-8 mt-4">
+            <div class="max-w-2xl mx-auto pt-4">
+                <!-- 투어메이커 전담 안내 텍스트 -->
                 <p class="text-xs text-slate-400 mb-6 leading-relaxed">
                     본 상품은 <strong class="text-slate-200">모두투어</strong>와 정식 제휴를 맺은 <strong class="text-slate-200">투어메이커</strong>가<br class="hidden sm:block"> 판매, 예약, 결제 및 고객관리를 전담합니다.
                 </p>
                 
+                <!-- 로고 영역 -->
                 <div class="flex items-center justify-center gap-6 mb-8 opacity-80 hover:opacity-100 transition-opacity">
-                    <!-- 투어메이커 로고 -->
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker" class="h-8 w-auto grayscale invert">
+                    <!-- 투어메이커 로고 (홈페이지 링크 적용) -->
+                    <a href="http://tourmaker.kr" target="_blank" title="투어메이커 홈페이지">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHfgIX70O5k6Anuo0UgALIdaG9jSga9auHu3uyz0uEirylGPAJnjN_qQbvEGMUvPqUQf_g9FMNUHRxlDcUBf4vZ3Mpy4TnA9WxbmzWYK11gt2zuy_Irl4wctNFjcjLyPo0GPXV792o_J7L9guRMuDfeC1gy7USwywjYbECZgzcsHybuGRRAXAnO1eNmP8/s320/logo.png" alt="Tourmaker" class="h-8 w-auto grayscale invert">
+                    </a>
                     <span class="text-slate-700 text-xl font-thin">|</span>
                     <!-- 모두투어 로고 -->
                     <img src="https://ditto-phinf.pstatic.net/20240627_79/1719469654080HkLus_PNG/667d06536a4e8e22f07d8c39.png" alt="Mode Tour" class="h-6 w-auto grayscale invert brightness-200">
                 </div>
                 
-                <p class="text-[10px] text-slate-600 mt-8">&copy; 2026 Tourmaker. All Rights Reserved.</p>
+                <!-- 트래블 테크 기술 제휴 안내 -->
+                <p style="color: #6c757d; font-size: 12px; text-align: center; margin-bottom: 15px;">
+                    [System Powered by TOURMAKER] 본 스마트 가이드북은 <a href="http://tourmaker.kr" target="_blank" style="color: #6c757d; font-weight: bold; text-decoration: underline;">모두투어</a>의 기획과 투어메이커의 트래블 테크 기술 제휴로 제작되었습니다.
+                </p>
+                <p class="text-[10px] text-slate-600">&copy; 2026 Tourmaker. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript Logic -->
     <script>
-        // Video Play Logic
+        // --------------------------------------------------------
+        // 0. Toast Notification Logic (For Duplicate Selection Warning)
+        // --------------------------------------------------------
+        function showToast(msg) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-800 text-white px-6 py-3 rounded-full shadow-2xl text-sm font-bold animate-fade-in-up border border-slate-700';
+            toast.innerHTML = msg;
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => toast.remove(), 500);
+            }, 3500);
+        }
+
+        // --------------------------------------------------------
+        // 1. YouTube Video Player Logic
+        // --------------------------------------------------------
         function playVideo(element, videoId) {
             const iframe = document.createElement('iframe');
             iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
             iframe.title = "YouTube Video";
-            iframe.className = "w-full h-full";
+            iframe.className = "w-full h-full rounded-xl";
             iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
             iframe.allowFullscreen = true;
             element.innerHTML = '';
@@ -609,9 +1038,362 @@
             element.classList.remove('cursor-pointer', 'group');
         }
 
+        // --------------------------------------------------------
+        // 2. DOM Elements for Builder
+        // --------------------------------------------------------
+        const els = {
+            d2_tour: document.getElementById('sel_d2_tour'),
+            d2_spa: document.getElementById('sel_d2_spa'),
+            d2_dinner: document.getElementById('sel_d2_dinner'),
+            d2_night: document.getElementById('sel_d2_night'),
+            d3_tour: document.getElementById('sel_d3_tour'),
+            d3_spa: document.getElementById('sel_d3_spa'),
+            d3_dinner: document.getElementById('sel_d3_dinner'),
+            d6_tour: document.getElementById('sel_d6_tour'),
+            d6_spa: document.getElementById('sel_d6_spa')
+        };
+
+        // --------------------------------------------------------
+        // 2.5 Duplicate Checking Logic (Tour & Dinner)
+        // --------------------------------------------------------
+        function checkDuplicate(changedSelect, type) {
+            let el1, el2, nameLabel;
+            if(type === 'tour') { el1 = els.d2_tour; el2 = els.d3_tour; nameLabel = '핵심 관광'; }
+            if(type === 'dinner') { el1 = els.d2_dinner; el2 = els.d3_dinner; nameLabel = '석식 레스토랑'; }
+
+            // 중복 선택 시 초기화 및 안내 토스트 띄우기
+            if (el1.value && el1.value === el2.value) {
+                if (changedSelect === el1) {
+                    el2.value = "";
+                } else {
+                    el1.value = "";
+                }
+                showToast(`💡 <strong>[${nameLabel}]</strong> 옵션은 다른 날과 중복하여 선택할 수 없습니다.`);
+            }
+            
+            // 한쪽에서 선택한 값을 다른쪽 드롭다운에서 비활성화 (Disabled) 처리
+            Array.from(el1.options).forEach(opt => { 
+                if(opt.value !== "") opt.disabled = (opt.value === el2.value); 
+            });
+            Array.from(el2.options).forEach(opt => { 
+                if(opt.value !== "") opt.disabled = (opt.value === el1.value); 
+            });
+        }
+
+        function updateAllDisabledStates() {
+            checkDuplicate(null, 'tour');
+            checkDuplicate(null, 'dinner');
+        }
+
+        // --------------------------------------------------------
+        // 3. Curation Button Logic
+        // --------------------------------------------------------
+        function applyCuration(type) {
+            if(type === 'healing') {
+                els.d2_tour.value = "【선택12】 [비용별도] 전용 차량 자유일정 8H (식사/입장료 개별)";
+                els.d2_spa.value = "【선택1】 아로마 스파 2시간";
+                els.d2_dinner.value = "【선택1】 아마데아호텔 - 3코스 셋디너";
+                els.d2_night.value = "리조트 조기 복귀 후 휴식";
+                
+                els.d3_tour.value = "【선택13】 리조트 내 전일 자유 (런치 제공)";
+                els.d3_spa.value = "【선택2】 초콜렛 스파 or 초콜렛 스톤 2시간";
+                els.d3_dinner.value = "【선택2】 짐바란 베이 비치 호텔 - 이탈리아 3코스";
+                
+                els.d6_tour.value = "울루와뚜 절벽사원 및 빠당빠당 비치";
+                els.d6_spa.value = "발 마사지 (출국 전 1시간)";
+            } else if (type === 'active') {
+                els.d2_tour.value = "【선택7】 해양스포츠 3종 (스노클링, 제트스키, 바나나보트)";
+                els.d2_spa.value = "【선택3】 지압맛사지 2시간";
+                els.d2_dinner.value = "【선택4】 짐바란 씨푸드 - 낭만 해변 만찬";
+                els.d2_night.value = "포테이토헤드 비치클럽 [음료별도]";
+                
+                els.d3_tour.value = "【선택5】 정글 어드밴쳐 (래프팅+스윙+오픈카)";
+                els.d3_spa.value = "【선택1】 아로마 스파 2시간";
+                els.d3_dinner.value = "【선택5】 Flavour - 스테이크 or 파스타 or 피자";
+                
+                els.d6_tour.value = "울루와뚜 절벽사원 및 빠당빠당 비치";
+                els.d6_spa.value = "【선택3】 지압맛사지 2시간";
+            } else if (type === 'photo') {
+                els.d2_tour.value = "【선택1】 발리동부투어 (램푸양사원/따만우중 등)";
+                els.d2_spa.value = "【선택1】 아로마 스파 2시간";
+                els.d2_dinner.value = "【선택5】 Flavour - 스테이크 or 파스타 or 피자";
+                els.d2_night.value = "스미냑 거리 자유시간";
+                
+                els.d3_tour.value = "【선택2】 발리북부투어 (히든힐스윙/폭포 등)";
+                els.d3_spa.value = "【선택2】 초콜렛 스파 or 초콜렛 스톤 2시간";
+                els.d3_dinner.value = "【선택2】 짐바란 베이 비치 호텔 - 이탈리아 3코스";
+                
+                els.d6_tour.value = "우붓 반나절 투어 (시장/왕궁)";
+                els.d6_spa.value = "【선택1】 아로마 스파 2시간";
+            } else if (type === 'reset') {
+                Object.values(els).forEach(el => el.value = "");
+            }
+
+            updateAllDisabledStates(); // 버튼 클릭 시 중복 체크 & 비활성화 반영
+            updatePreview();
+        }
+
+        // --------------------------------------------------------
+        // 4. Live Preview & Print Render Logic
+        // --------------------------------------------------------
+        function updatePreview() {
+            const preview = document.getElementById('timeline-preview');
+            const printContainer = document.getElementById('print-content-container');
+            
+            // 💡 비용 별도 및 사전예약 필수 항목 컬러 하이라이팅 처리
+            const highlightText = (text) => {
+                if(!text) return '<span class="text-rose-400 italic font-normal text-sm">미선택 (가이드와 상의)</span>';
+                return text
+                    .replace(/\[\+\$30 별도\]/g, '<span class="text-rose-600 font-extrabold bg-rose-50 px-1 rounded">[+$30 별도]</span>')
+                    .replace(/\[비용별도\]/g, '<span class="text-orange-600 font-extrabold bg-orange-50 px-1 rounded">[비용별도]</span>')
+                    .replace(/\[사전예약\]/g, '<span class="text-blue-600 font-extrabold bg-blue-50 px-1 rounded">[사전예약]</span>')
+                    .replace(/\[음료별도\]/g, '<span class="text-amber-600 font-extrabold bg-amber-50 px-1 rounded">[음료별도]</span>');
+            };
+
+            const printVal = (el) => el.value ? el.value : '미선택 (가이드와 상의 후 결정)';
+
+            // --- 4.1. Web Preview HTML ---
+            const html = `
+                <!-- Day 1 -->
+                <div class="relative pl-6 border-l-2 border-slate-200 pb-8">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-2 border-white"></div>
+                    <h5 class="font-bold text-slate-800 mb-2 text-lg">1일차 (5/25 월) : 설레는 출발</h5>
+                    <div class="text-sm text-slate-600 space-y-2 bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+                        <p><i class="fa-solid fa-plane-departure w-4 text-center"></i> 18:00 인천 출발 (대한항공)</p>
+                        <p><i class="fa-solid fa-plane-arrival w-4 text-center text-rose-500"></i> 23:50 발리 도착 및 가이드 미팅 (VIP 패스트트랙)</p>
+                        <p><i class="fa-solid fa-bed w-4 text-center text-indigo-500"></i> 쉐라톤 꾸따 리조트 체크인</p>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="relative pl-6 border-l-2 border-rose-400 pb-8">
+                    <div class="absolute -left-[10px] top-0 w-5 h-5 rounded-full bg-rose-500 border-4 border-white shadow-sm"></div>
+                    <h5 class="font-bold text-rose-700 mb-3 text-lg">2일차 (5/26 화) : 내 맘대로 발리</h5>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-100 space-y-3">
+                        <div class="flex items-start gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-[10px] px-2 py-0.5 rounded font-bold shrink-0 mt-0.5">선택관광</span>
+                            <span class="text-sm font-bold text-slate-800">${highlightText(els.d2_tour.value)}</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="bg-fuchsia-100 text-fuchsia-800 text-[10px] px-2 py-0.5 rounded font-bold shrink-0 mt-0.5">피로회복</span>
+                            <span class="text-sm font-bold text-slate-800">${highlightText(els.d2_spa.value)}</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded font-bold shrink-0 mt-0.5">낭만디너</span>
+                            <span class="text-sm font-bold text-slate-800">${highlightText(els.d2_dinner.value)}</span>
+                        </div>
+                        <div class="flex items-start gap-2 pt-2 border-t border-slate-50">
+                            <span class="bg-indigo-100 text-indigo-800 text-[10px] px-2 py-0.5 rounded font-bold shrink-0 mt-0.5">야간투어</span>
+                            <span class="text-sm font-bold text-slate-800">${highlightText(els.d2_night.value)}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="relative pl-6 border-l-2 border-rose-400 pb-8">
+                    <div class="absolute -left-[10px] top-0 w-5 h-5 rounded-full bg-rose-500 border-4 border-white shadow-sm"></div>
+                    <h5 class="font-bold text-rose-700 mb-3 text-lg">3일차 (5/27 수) : 힐링 & 테라피</h5>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-100 space-y-3">
+                        <div class="flex items-start gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-[10px] px-2 py-0.5 rounded font-bold shrink-0 mt-0.5">선택관광</span>
+                            <span class="text-sm font-bold text-slate-800">${highlightText(els.d3_tour.value)}</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="bg-fuchsia-100 text-fuchsia-800 text-[10px] px-2 py-0.5 rounded font-bold shrink-0 mt-0.5">피로회복</span>
+                            <span class="text-sm font-bold text-slate-800">${highlightText(els.d3_spa.value)}</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded font-bold shrink-0 mt-0.5">낭만디너</span>
+                            <span class="text-sm font-bold text-slate-800">${highlightText(els.d3_dinner.value)}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 4~5 -->
+                <div class="relative pl-6 border-l-2 border-slate-200 pb-8">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-2 border-white"></div>
+                    <h5 class="font-bold text-slate-800 mb-2 text-lg">4~5일차 : 온전한 휴식</h5>
+                    <div class="text-sm text-slate-600 space-y-2 bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+                        <p><i class="fa-solid fa-taxi w-4 text-center"></i> 쥬메이라 풀빌라로 이동 (4일차 오전)</p>
+                        <p><strong class="text-rose-600">NO DISTURB</strong> 전일 풀빌라 프라이빗 자유일정</p>
+                        <p><i class="fa-solid fa-utensils w-4 text-center"></i> 5일차 리조트 내 특전 식사 (중/석식 제공)</p>
+                    </div>
+                </div>
+
+                <!-- Day 6 -->
+                <div class="relative pl-6 border-l-2 border-transparent pb-2">
+                    <div class="absolute -left-[10px] top-0 w-5 h-5 rounded-full bg-slate-500 border-4 border-white shadow-sm"></div>
+                    <h5 class="font-bold text-slate-700 mb-3 text-lg">6~7일차 (5/30~31) : 아쉬운 작별</h5>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-100 space-y-3">
+                        <div class="flex items-start gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-[10px] px-2 py-0.5 rounded font-bold shrink-0 mt-0.5">마지막관광</span>
+                            <span class="text-sm font-bold text-slate-800">${highlightText(els.d6_tour.value)}</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="bg-fuchsia-100 text-fuchsia-800 text-[10px] px-2 py-0.5 rounded font-bold shrink-0 mt-0.5">피로회복</span>
+                            <span class="text-sm font-bold text-slate-800">${highlightText(els.d6_spa.value)}</span>
+                        </div>
+                        <p class="text-xs text-slate-500 pt-2 border-t border-slate-50 mt-2 font-bold">
+                            <i class="fa-solid fa-plane-up"></i> 이후 공항 이동 -> 5/31(일) 09:25 인천공항 도착 및 해산
+                        </p>
+                    </div>
+                </div>
+            `;
+            preview.innerHTML = html;
+
+            // --- 4.2. Print (PDF) HTML ---
+            const printHtml = `
+                <div class="print-day-card" style="background-color: #f8fafc;">
+                    <div class="print-day-title" style="color:#0f172a; background-color:#e2e8f0;">[기본 일정] 1일차 / 4~5일차</div>
+                    <div class="print-item"><b>1일차:</b> 18:00 인천 출발 ➔ 발리 도착 후 가이드 미팅 ➔ 쉐라톤 꾸따 리조트 체크인</div>
+                    <div class="print-item"><b>4~5일차:</b> 쥬메이라 풀빌라 전일 자유일정 (5일차 리조트 중/석식 포함)</div>
+                </div>
+
+                <div class="print-day-card">
+                    <div class="print-day-title">2일차 (5/26 화) 고객 선택 일정</div>
+                    <div class="print-item"><b>[관광]</b> ${printVal(els.d2_tour)}</div>
+                    <div class="print-item"><b>[스파]</b> ${printVal(els.d2_spa)}</div>
+                    <div class="print-item"><b>[석식]</b> ${printVal(els.d2_dinner)}</div>
+                    <div class="print-item"><b>[야간]</b> ${printVal(els.d2_night)}</div>
+                </div>
+
+                <div class="print-day-card">
+                    <div class="print-day-title">3일차 (5/27 수) 고객 선택 일정</div>
+                    <div class="print-item"><b>[관광]</b> ${printVal(els.d3_tour)}</div>
+                    <div class="print-item"><b>[스파]</b> ${printVal(els.d3_spa)}</div>
+                    <div class="print-item"><b>[석식]</b> ${printVal(els.d3_dinner)}</div>
+                </div>
+
+                <div class="print-day-card">
+                    <div class="print-day-title">6일차 (5/30 토) 체크아웃 후 일정</div>
+                    <div class="print-item"><b>[관광]</b> ${printVal(els.d6_tour)}</div>
+                    <div class="print-item"><b>[스파]</b> ${printVal(els.d6_spa)}</div>
+                    <div class="print-item"><b>[석식]</b> 현지식 또는 가이드와 상의 후 결정</div>
+                    <div class="print-item" style="margin-top:20px; border-top: 1px dashed #cbd5e1; padding-top: 10px;">
+                        <b>[귀국]</b> 공항 이동 후 출국 ➔ 5/31(일) 09:25 인천공항 도착
+                    </div>
+                </div>
+            `;
+            printContainer.innerHTML = printHtml;
+        }
+
+        // --------------------------------------------------------
+        // 9. Weather API Integration Logic (Open-Meteo)
+        // --------------------------------------------------------
+        async function fetchWeather() {
+            try {
+                // 발리 위도, 경도 좌표 적용 (latitude=-8.4095, longitude=115.1889)
+                const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-8.4095&longitude=115.1889&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FSingapore');
+                const data = await res.json();
+                const container = document.getElementById('weather-forecast-container');
+                document.getElementById('weather-status').innerText = '업데이트 완료';
+                
+                let html = '';
+                const wmoCodes = {
+                    0: {icon: '☀️', desc: '맑음'},
+                    1: {icon: '🌤️', desc: '대체로 맑음'},
+                    2: {icon: '⛅', desc: '구름조금'},
+                    3: {icon: '☁️', desc: '흐림'},
+                    45: {icon: '🌫️', desc: '안개'},
+                    48: {icon: '🌫️', desc: '안개'},
+                    51: {icon: '🌧️', desc: '이슬비'},
+                    53: {icon: '🌧️', desc: '이슬비'},
+                    55: {icon: '🌧️', desc: '이슬비'},
+                    61: {icon: '☔', desc: '비'},
+                    63: {icon: '☔', desc: '비'},
+                    65: {icon: '☔', desc: '강한 비'},
+                    71: {icon: '❄️', desc: '눈'},
+                    80: {icon: '🌦️', desc: '소나기'},
+                    81: {icon: '🌦️', desc: '소나기'},
+                    82: {icon: '⛈️', desc: '강한 소나기'},
+                    95: {icon: '⛈️', desc: '뇌우'},
+                    96: {icon: '⛈️', desc: '뇌우'},
+                    99: {icon: '⛈️', desc: '강한 뇌우'}
+                };
+
+                for(let i=0; i<7; i++) {
+                    const date = new Date(data.daily.time[i]);
+                    const dayStr = `${date.getMonth()+1}/${date.getDate()}`;
+                    const days = ['일','월','화','수','목','금','토'];
+                    const dayName = days[date.getDay()];
+                    const maxT = Math.round(data.daily.temperature_2m_max[i]);
+                    const minT = Math.round(data.daily.temperature_2m_min[i]);
+                    const code = data.daily.weathercode[i];
+                    const weather = wmoCodes[code] || {icon: '🌥️', desc: '구름많음'};
+
+                    html += `
+                    <div class="weather-card bg-white border border-sky-100 rounded-xl p-3 text-center min-w-[80px] shadow-sm">
+                        <div class="text-xs text-slate-500 mb-1">${dayStr}(${dayName})</div>
+                        <div class="text-2xl mb-1">${weather.icon}</div>
+                        <div class="text-[10px] font-bold text-slate-700">${maxT}° / ${minT}°</div>
+                    </div>`;
+                }
+                container.innerHTML = html;
+            } catch (e) {
+                document.getElementById('weather-forecast-container').innerHTML = '<div class="text-sm text-rose-500 py-4 w-full text-center">날씨 정보를 불러오지 못했습니다.</div>';
+                document.getElementById('weather-status').innerText = '정보 갱신 실패';
+            }
+        }
+
+        // --------------------------------------------------------
+        // 10. Currency Calculator Logic
+        // --------------------------------------------------------
+        let isIdrToKrw = true;
+        
+        function swapCurrency() {
+            isIdrToKrw = !isIdrToKrw;
+            document.getElementById('calc-label-from').innerText = isIdrToKrw ? '인도네시아 루피아 (IDR)' : '대한민국 원 (KRW)';
+            document.getElementById('calc-label-to').innerText = isIdrToKrw ? '대한민국 원 (KRW)' : '인도네시아 루피아 (IDR)';
+            
+            // Swap 때 입력되어 있는 숫자도 재계산 & 포맷팅
+            const inputElem = document.getElementById('calc-input');
+            formatCurrencyInput(inputElem);
+            calculateCurrency();
+        }
+
+        // 💡 천 단위 콤마 포맷팅 함수
+        function formatCurrencyInput(inputElem) {
+            // 숫자 이외의 문자 모두 제거
+            let value = inputElem.value.replace(/[^0-9]/g, '');
+            
+            if (value) {
+                // 천 단위 콤마 추가하여 다시 input에 넣기
+                inputElem.value = Number(value).toLocaleString('ko-KR');
+            } else {
+                inputElem.value = '';
+            }
+        }
+
+        function calculateCurrency() {
+            const rawInput = document.getElementById('calc-input').value;
+            // 계산을 위해 콤마 제거 후 숫자로 변환
+            const input = Number(rawInput.replace(/,/g, '')); 
+            
+            // PDF 안내서 기준: 100루피아 = 8.91원 -> 1루피아 = 0.0891원
+            const rate = 8.91 / 100; 
+            let result = 0;
+            
+            if(isIdrToKrw) {
+                result = input * rate;
+            } else {
+                result = input / rate;
+            }
+            
+            const formatter = new Intl.NumberFormat('ko-KR');
+            document.getElementById('calc-result').innerText = formatter.format(Math.round(result)) + (isIdrToKrw ? ' 원' : ' 루피아');
+        }
+        
+        // 글로벌 스코프에 노출 (인라인 이벤트 리스너용)
+        window.swapCurrency = swapCurrency;
+        window.formatCurrencyInput = formatCurrencyInput;
+        window.calculateCurrency = calculateCurrency;
+
+        // --------------------------------------------------------
+        // DOM Content Loaded Handler
+        // --------------------------------------------------------
         document.addEventListener('DOMContentLoaded', function () {
             
-            // 0. D-Day Counter (2026.05.25)
+            // 5. D-Day Counter (2026.05.25)
             const dDayBadge = document.getElementById('d-day-badge');
             const today = new Date(); today.setHours(0,0,0,0);
             const startDate = new Date('2026-05-25T00:00:00');
@@ -619,24 +1401,26 @@
 
             if (today < startDate) {
                 const diff = Math.ceil((startDate - today) / (1000 * 60 * 60 * 24));
-                dDayBadge.innerText = `D-${diff} 설렘가득`;
+                dDayBadge.innerText = `D-${diff} 허니문 준비`;
             } else if (today <= endDate) {
                 const diff = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
-                dDayBadge.innerText = `여행 ${diff}일차`;
-                dDayBadge.className = 'bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-bounce';
+                dDayBadge.innerText = `행복한 여행 ${diff}일차`;
+                dDayBadge.className = 'hidden sm:block bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md animate-bounce';
             } else {
                 dDayBadge.innerText = "여행 종료";
-                dDayBadge.className = 'bg-slate-500 text-white text-xs font-bold px-3 py-1 rounded-full';
+                dDayBadge.className = 'hidden sm:block bg-slate-500 text-white text-xs font-bold px-3 py-1 rounded-full';
             }
 
-            // 1. Navigation Scroll Spy
+            // 6. Navigation Scroll Spy
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         navLinks.forEach(link => {
-                            link.classList.remove('active', 'text-rose-600', 'border-rose-600');
+                            if (!link.classList.contains('border-rose-600')) { // 스마트빌더 버튼 색유지
+                                link.classList.remove('active', 'text-rose-600', 'border-rose-600');
+                            }
                             if (link.getAttribute('href').substring(1) === entry.target.id) {
                                 link.classList.add('active', 'text-rose-600', 'border-rose-600');
                             }
@@ -646,51 +1430,68 @@
             }, { threshold: 0.15 });
             sections.forEach(section => observer.observe(section));
 
-            // 2. Schedule Data (Bali Itinerary)
-            const scheduleData = {
+            // 문화 탭 전환 로직 추가
+            const cultureTabs = document.querySelectorAll('.culture-tab');
+            const cultureContents = document.querySelectorAll('.culture-content');
+            cultureTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // 모든 탭 초기화
+                    cultureTabs.forEach(t => {
+                        t.classList.remove('active', 'text-amber-600', 'border-amber-600');
+                        t.classList.add('text-slate-500', 'border-transparent');
+                    });
+                    // 현재 탭 활성화
+                    tab.classList.add('active', 'text-amber-600', 'border-amber-600');
+                    tab.classList.remove('text-slate-500', 'border-transparent');
+                    
+                    // 모든 컨텐츠 숨기기
+                    cultureContents.forEach(c => c.classList.add('hidden'));
+                    
+                    // 타겟 컨텐츠 보여주기
+                    const targetId = tab.getAttribute('data-target');
+                    document.getElementById(targetId).classList.remove('hidden');
+                });
+            });
+
+            // 7. Base Timeline Tabs Logic (V1 content representation)
+            const baseScheduleData = {
                 day1: {
-                    title: 'Day 1: 5/25 (월) - 설레는 출발',
+                    title: '1일차: 5/25 (월) - 출발',
                     items: [
-                        { time: '18:00', desc: '인천 출발 (KE433) <span class="text-xs text-slate-400">약 7시간 소요</span>', icon: '✈️' },
-                        { time: '23:50', desc: '발리 덴파사 공항 도착 <span class="text-rose-500 font-bold">(VIP 패스트트랙)</span>', icon: '🛬' },
+                        { time: '18:00', desc: '인천 출발 (KE433)', icon: '✈️' },
+                        { time: '23:50', desc: '발리 덴파사 공항 도착 (패스트트랙)', icon: '🛬' },
                         { time: '숙소', desc: '가이드 미팅 후 <strong>쉐라톤 꾸따</strong> 체크인', icon: '🏨' }
                     ]
                 },
                 day2: {
-                    title: 'Day 2: 5/26 (화) - 내 맘대로 발리',
+                    title: '2일차: 5/26 (화) - 선택형 일정 시작',
                     items: [
-                        { time: '오전', desc: '리조트 조식 및 자유시간', icon: '☕' },
-                        { time: '12:00', desc: '<strong class="text-rose-600">선택 일정 (택 1)</strong> 진행<br><span class="text-xs text-slate-500">동부/남부/해양스포츠 등</span>', icon: '✨' },
-                        { time: '오후', desc: '전신 마사지 (2시간) <span class="text-xs bg-rose-100 text-rose-600 px-1 rounded">포함</span>', icon: '💆‍♀️' },
-                        { time: '석식', desc: '<strong class="text-slate-800">선택형 디너</strong> (씨푸드/스테이크 등)', icon: '🍽️' },
-                        { time: '나이트', desc: '나이트 투어 (포테이토헤드/쿠데타 등)', icon: '🌙' }
+                        { time: '오전', desc: '리조트 조식 후 자유시간', icon: '☕' },
+                        { time: '오후', desc: '<span class="text-rose-600 font-bold">선택 관광 + 스파 2시간 + 선택 디너</span> 진행<br><span class="text-xs text-slate-500">* 아래 스마트 빌더에서 일정을 선택해주세요.</span>', icon: '✨' },
+                        { time: '야간', desc: '선택형 나이트 투어 (포테이토헤드 등)', icon: '🌙' }
                     ]
                 },
                 day3: {
-                    title: 'Day 3: 5/27 (수) - 힐링 & 테라피',
+                    title: '3일차: 5/27 (수) - 선택형 일정',
                     items: [
-                        { time: '오전', desc: '리조트 조식 및 자유시간', icon: '🏊' },
-                        { time: '오후', desc: '<strong class="text-rose-600">선택 일정 (택 1)</strong> 진행', icon: '📸' },
-                        { time: '테라피', desc: '럭셔리 스파 (2시간) <span class="text-xs bg-rose-100 text-rose-600 px-1 rounded">초콜릿/스톤/지압</span>', icon: '💆‍♂️' },
-                        { time: '석식', desc: '선택형 디너', icon: '🍷' }
+                        { time: '오전', desc: '리조트 조식 후 자유시간', icon: '🏊' },
+                        { time: '오후', desc: '<span class="text-rose-600 font-bold">선택 관광 + 스파 2시간 + 선택 디너</span> 진행<br><span class="text-xs text-slate-500">* 아래 스마트 빌더에서 일정을 선택해주세요.</span>', icon: '💆‍♀️' }
                     ]
                 },
                 day4: {
-                    title: 'Day 4~5: 5/28(목)~29(금) - 쥬메이라 풀빌라',
+                    title: '4~5일차: 5/28(목)~29(금) - 휴식',
                     items: [
-                        { time: '4일차', desc: '오전 쉐라톤 체크아웃 → <strong>쥬메이라 발리</strong> 이동 및 체크인', icon: '🚕' },
-                        { time: '4일차', desc: '가든 풀빌라 투숙 & 프라이빗 풀 휴식', icon: '🏡' },
-                        { time: '5일차', desc: '<span class="text-rose-600 font-bold">NO DISTURB (전일 자유)</span>', icon: '⛔' },
-                        { time: '식사', desc: '5일차 리조트 런치 & 디너 제공', icon: '🍴' }
+                        { time: '4일차', desc: '쉐라톤 체크아웃 → <strong>쥬메이라 풀빌라</strong> 이동', icon: '🚕' },
+                        { time: '4~5일차', desc: '가든 풀빌라 투숙 및 프라이빗 자유시간 (NO DISTURB)', icon: '🏡' },
+                        { time: '식사', desc: '5일차 리조트 중/석식 제공', icon: '🍴' }
                     ]
                 },
                 day6: {
-                    title: 'Day 6~7: 5/30(토)~31(일) - 아쉬운 작별',
+                    title: '6~7일차: 5/30(토)~31(일) - 작별',
                     items: [
-                        { time: '12:00', desc: '체크아웃 및 가이드 미팅', icon: '👋' },
-                        { time: '오후', desc: '우붓 투어 or 울루와뚜 절벽사원 (택 1)', icon: '🐒' },
-                        { time: '저녁', desc: '마지막 만찬 & 발 마사지', icon: '👣' },
-                        { time: '22:00', desc: '공항 이동 및 출국 수속', icon: '🛫' },
+                        { time: '12:00', desc: '체크아웃 후 가이드 미팅', icon: '👋' },
+                        { time: '오후', desc: '<span class="text-rose-600 font-bold">마지막 선택 관광 + 스파 2시간</span>', icon: '🐒' },
+                        { time: '저녁', desc: '마지막 현지식 만찬 후 공항 이동', icon: '🛫' },
                         { time: '09:25', desc: '인천 도착 (5/31 일요일)', icon: '🏠' }
                     ]
                 }
@@ -700,14 +1501,14 @@
             const tabButtons = document.querySelectorAll('.tab-btn');
 
             function renderTabContent(day) {
-                const data = scheduleData[day];
-                let content = `<div class="animate-fade-in"><h3 class="text-xl font-bold mb-6 text-slate-800 border-l-4 border-rose-500 pl-3">${data.title}</h3><ul class="space-y-6">`;
+                const data = baseScheduleData[day];
+                let content = `<div class="animate-fade-in"><h3 class="text-xl font-bold mb-6 text-slate-800 border-l-4 border-slate-500 pl-3">${data.title}</h3><ul class="space-y-6">`;
                 data.items.forEach(item => {
                     content += `
                         <li class="timeline-item relative pl-8 pb-2">
-                            <div class="absolute left-0 top-1 w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center text-xs border border-rose-200">●</div>
+                            <div class="absolute left-0 top-1 w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-xs border border-slate-200">●</div>
                             <div>
-                                <span class="inline-block bg-slate-100 text-slate-500 text-[10px] font-bold px-2 py-0.5 rounded mb-1">${item.time}</span>
+                                <span class="inline-block bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded mb-1">${item.time}</span>
                                 <p class="text-slate-700 text-base leading-snug">${item.desc}</p>
                             </div>
                         </li>`;
@@ -723,20 +1524,20 @@
                     renderTabContent(button.dataset.tab);
                 });
             });
-            renderTabContent('day1'); // Initial Render
+            renderTabContent('day1'); // Init tabs
 
-            // 3. Checklist & Memo
+            // 8. Checklist & Memo Logic
             const checklistItems = [
                 { id: 'pass', text: '여권 (유효기간 6개월↑)' },
                 { id: 'eticket', text: '항공권 E-Ticket' },
                 { id: 'visa', text: '전자비자(e-VOA) 또는 도착비자비($38)' },
                 { id: 'tax', text: '발리 관광세 납부 QR' },
                 { id: 'customs', text: '전자세관신고서(ECD) QR' },
-                { id: 'money', text: '달러 환전 (팁용 $1 소액권 포함)' },
-                { id: 'swim', text: '수영복 & 래쉬가드' },
-                { id: 'filter', text: '샤워기 필터 (필수!)' },
-                { id: 'meds', text: '상비약 (소화제, 밴드 등)' },
-                { id: 'sun', text: '선크림 & 선글라스' }
+                { id: 'money', text: '달러 환전 (팁용 $1 소액권 넉넉히)' },
+                { id: 'swim', text: '수영복 & 래쉬가드 & 방수팩' },
+                { id: 'filter', text: '샤워기 필터 (풀빌라용 추천)' },
+                { id: 'meds', text: '상비약 (소화제, 밴드, 모기기피제)' },
+                { id: 'sun', text: '선크림 & 선글라스 & 양산' }
             ];
             
             const checkContainer = document.getElementById('checklist-container');
@@ -752,7 +1553,6 @@
                 const checkbox = div.querySelector('input');
                 checkbox.checked = localStorage.getItem('bali_check_' + item.id) === 'true';
                 
-                // Toggle wrapper click
                 div.addEventListener('click', (e) => {
                     if (e.target !== checkbox) {
                         checkbox.checked = !checkbox.checked;
@@ -767,7 +1567,6 @@
                     div.querySelector('label').classList.toggle('text-rose-400', e.target.checked);
                 });
                 
-                // Initial style set
                 if(checkbox.checked) {
                     div.classList.add('bg-rose-50');
                     div.querySelector('label').classList.add('line-through', 'text-rose-400');
@@ -785,17 +1584,26 @@
                 }
             };
 
-            // Memo Logic
             const memoArea = document.getElementById('travel-memo');
             const saveStatus = document.getElementById('save-status');
-            memoArea.value = localStorage.getItem('bali_memo_v1') || '';
+            memoArea.value = localStorage.getItem('bali_memo_v2') || ''; // updated key
             
             memoArea.addEventListener('input', () => {
-                localStorage.setItem('bali_memo_v1', memoArea.value);
+                localStorage.setItem('bali_memo_v2', memoArea.value);
                 saveStatus.innerText = '저장됨 ' + new Date().toLocaleTimeString();
                 saveStatus.classList.add('text-rose-500');
                 setTimeout(() => saveStatus.classList.remove('text-rose-500'), 1000);
             });
+
+            // Initialize App
+            updateAllDisabledStates();
+            updatePreview();
+            fetchWeather();
+            
+            // Format input & calculate initially
+            const initInput = document.getElementById('calc-input');
+            formatCurrencyInput(initInput);
+            calculateCurrency();
         });
     </script>
 </body>
